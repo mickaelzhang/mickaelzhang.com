@@ -1,11 +1,14 @@
 import React from "react";
 
-// import "./styles.scss";
+import "./styles.scss";
 
 const ProjectItem = ({name, type}) => (
   <article className="ProjectItem">
-    <span>{name}</span>
-    <span>{type}</span>
+    <div className="ProjectItem__Visual"></div>
+    <div className="ProjectItem__Title">
+      <span className="ProjectItem__Name">{name}</span>
+      <span className="ProjectItem__Role">{type}</span>
+    </div>
   </article>
 );
 

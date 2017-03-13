@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectItem from "../ProjectItem";
 
-// import "./styles.scss";
+import "./styles.scss";
 
 const ProjectList = ({projects}) => (
   <div className="ProjectList">

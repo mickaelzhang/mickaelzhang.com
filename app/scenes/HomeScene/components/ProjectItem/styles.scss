@@ -1,0 +1,28 @@
+@import '../../../../shared/styles/theme';
+
+.ProjectItem {
+  &:not(:last-child) {
+    margin-bottom: 200px;
+  }
+
+  &__Visual {
+    width: 720px;
+    height: 405px;
+    background-color: grey;
+  }
+
+  &__Title {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__Role {
+    color: $secondary-color;
+
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: lowercase;
+  }
+}
