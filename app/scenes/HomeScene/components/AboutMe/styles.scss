@@ -9,13 +9,12 @@
   }
 
   &__ContactInfo {
-    color: $secondary-color;
+    @extend %typo-setting-two;
   }
 
   &__Link {
     // Inherit from .AboutMe__ContactInfo
     color: inherit;
     text-decoration: none;
-    text-transform: lowercase;
   }
 }

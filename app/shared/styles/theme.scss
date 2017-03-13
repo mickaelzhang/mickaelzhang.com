@@ -1,5 +1,8 @@
 @import 'base/reset';
 @import 'base/fonts';
 
-@import 'config/settings';
 @import 'config/colors';
+@import 'config/settings';
+
+@import 'utils/mixins';
+@import 'utils/extends';

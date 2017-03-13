@@ -1,10 +1,11 @@
 @import '../../shared/styles/theme';
 
 .HomeScene {
+  @extend %typo-setting-one;
+
   font-family: $primary-font;
-  font-weight: 400;
   font-size: 16px;
-  color: $primary-color;
+
   background-color: $background-color;
 
   min-height: 100vh;
