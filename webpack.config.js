@@ -24,9 +24,9 @@ module.exports = {
     publicPath: '/dist/'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['.js'],
     alias: {
-      '@shared': __dirname + '/app/shared'
+      '@shared': resolve(__dirname, 'app/shared/')
     }
   },
   module: {
@@ -40,7 +40,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /(\.css|\.sass|\.scss)$/,
         use: [
           'style-loader',
           'css-loader',
