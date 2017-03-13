@@ -1,0 +1,21 @@
+@import '../../../../shared/styles/theme';
+
+.AboutMe {
+  width: 500px;
+  line-height: 24px;
+
+  &__Text {
+    margin-bottom: 40px;
+  }
+
+  &__ContactInfo {
+    color: $secondary-color;
+  }
+
+  &__Link {
+    // Inherit from .AboutMe__ContactInfo
+    color: inherit;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+}

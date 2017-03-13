@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
 
+import HomeScene from "./scenes/HomeScene/index";
+
 render(
-  <div>
-    Hello World!
-  </div>,
+  <HomeScene />,
   document.getElementById("root")
 );

@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.scss";
 
-const Logo = () => (
-  <h1 className="Logo">Mickael Zhang</h1>
+const Logo = ({title}) => (
+  <h1 className="Logo">{title}</h1>
 );
 
 export default Logo;
