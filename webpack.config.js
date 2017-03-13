@@ -26,7 +26,7 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@shared': resolve(__dirname, 'app/shared/')
+      '@components': resolve(__dirname, 'app/shared/components/')
     }
   },
   module: {
@@ -47,6 +47,10 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ],
+      },
+      {
+        test   : /\.(otf|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader : 'file-loader'
       },
     ],
   }
