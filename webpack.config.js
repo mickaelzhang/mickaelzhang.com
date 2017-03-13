@@ -23,6 +23,12 @@ module.exports = {
     // match the output `publicPath`
     publicPath: '/dist/'
   },
+  resolve: {
+    extensions: ['', '.js'],
+    alias: {
+      '@shared': __dirname + '/app/shared'
+    }
+  },
   module: {
     rules: [
       {
