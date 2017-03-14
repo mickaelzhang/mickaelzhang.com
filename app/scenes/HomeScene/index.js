@@ -31,7 +31,17 @@ class HomeScene extends Component {
           name: 'Julien Liénard',
           slug: 'julien-lienard',
           type: 'WordPress Theme Development'
-        }
+        },
+        {
+          name: 'Packshot Creator',
+          slug: 'packshot-create',
+          type: 'Front-End Development'
+        },
+        {
+          name: 'Parme Avocats',
+          slug: 'parme-avocats',
+          type: 'Front-End Development'
+        },
       ]
     };
   }

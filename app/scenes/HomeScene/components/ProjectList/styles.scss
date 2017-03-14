@@ -2,4 +2,31 @@
 
 .ProjectList {
   margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+
+  .ProjectItem {
+    margin-left: 0;
+    margin-right: 0;
+
+    @include breakpoint(medium) {
+      &:nth-child(4n + 1){
+        margin-left: 14%;
+      }
+
+      &:nth-child(4n + 2){
+        margin-left: calc(100% - 720px);
+      }
+
+      &:nth-child(4n + 3){
+        margin-left: 6%;
+      }
+
+      &:nth-child(4n + 4){
+        margin-left: 22%;
+      }
+    };
+  }
+
+
 }
