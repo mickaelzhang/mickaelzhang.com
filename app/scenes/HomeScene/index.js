@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Logo from "@components/Logo";
+import ReturnToTop from "@components/ReturnToTop";
 import AboutMe from "./components/AboutMe";
 import ProjectList from "./components/ProjectList";
 
@@ -60,7 +61,8 @@ class HomeScene extends Component {
             email={this.state.email}
             github={this.state.github}
           />
-          <ProjectList projects={this.state.projects} />
+          <ProjectList projects={this.state.projects}/>
+          <ReturnToTop/>
         </div>
       </div>
     );

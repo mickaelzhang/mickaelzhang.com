@@ -1,0 +1,11 @@
+@import '../../../../styles/theme';
+
+.SvgIconReturnToTop {
+  &__Circle {
+    fill: $secondary-color;
+  }
+
+  &__Arrow {
+    fill: $primary-color;
+  }
+}

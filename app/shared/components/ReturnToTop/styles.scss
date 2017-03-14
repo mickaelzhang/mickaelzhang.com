@@ -1,0 +1,20 @@
+@import '../../styles/theme';
+
+.ReturnToTop {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+
+  &__Icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+  }
+  &__Text {
+    @extend %typo-setting-two;
+    font-size: 18px;
+    align-self: center;
+  }
+}
