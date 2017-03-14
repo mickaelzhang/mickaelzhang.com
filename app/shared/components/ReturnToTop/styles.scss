@@ -8,11 +8,12 @@
   cursor: pointer;
 
   opacity: 0;
+  will-change: opacity;
   pointer-events: none;
-  transition: opacity 600ms ease-out;
+  transition: opacity 400ms ease-out;
 
   &--active {
-    opacity: 0.7;
+    opacity: .7;
     pointer-events: all;
   }
 
