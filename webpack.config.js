@@ -26,7 +26,9 @@ module.exports = {
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@components': resolve(__dirname, 'app/shared/components/')
+      '@components': resolve(__dirname, 'app/components/'),
+      '@scenes':     resolve(__dirname, 'app/scenes/'),
+      '@containers': resolve(__dirname, 'app/containers/')
     }
   },
   module: {
