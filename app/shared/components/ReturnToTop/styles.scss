@@ -7,6 +7,19 @@
   flex-direction: row;
   cursor: pointer;
 
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms ease-out;
+
+  &--active {
+    opacity: 0.7;
+    pointer-events: all;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
   &__Icon {
     width: 32px;
     height: 32px;

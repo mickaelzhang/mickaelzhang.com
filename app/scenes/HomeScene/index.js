@@ -16,11 +16,8 @@ class HomeScene extends Component {
       email: 'mickael.zhg@gmail.com',
       github: '//github.com/mickaelzhang',
       description: `
-        Le Lorem Ipsum est simplement du faux texte employé dans la composition
-        et la mise en page avant impression. Le Lorem Ipsum est le faux texte
-        standard de l’imprimerie depuis les années 1500, quand un peintre
-        anonyme assembla ensemble des morceaux de texte pour réaliser un livre
-        spécimen de polices de texte.
+        French student at Hetic looking for an summer intership in FrontEnd
+        Development from July to October. Feel free to contact me.
       `,
       projects: [
         {
@@ -47,13 +44,32 @@ class HomeScene extends Component {
           type: 'Front-End Development',
           url: '//www.parme-avocats.com'
         },
-      ]
+      ],
+      window: {
+        viewPosY: 0
+      }
     };
+
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  handleScroll() {
+    const top  = window.pageYOffset || document.documentElement.scrollTop;
+
+    console.log(`top: ${top}`);
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   render() {
     return (
-      <div className="HomeScene">
+      <div className="HomeScene" onScroll={this.handleScroll}>
         <div className="HomeScene__Container">
           <Logo title={this.state.title}/>
           <AboutMe
@@ -62,7 +78,7 @@ class HomeScene extends Component {
             github={this.state.github}
           />
           <ProjectList projects={this.state.projects}/>
-          <ReturnToTop/>
+          <ReturnToTop isActive={true} />
         </div>
       </div>
     );
