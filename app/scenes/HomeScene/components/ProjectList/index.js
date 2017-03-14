@@ -10,6 +10,7 @@ const ProjectList = ({projects}) => (
         key={project.slug}
         name={project.name}
         type={project.type}
+        url={project.url}
       />
     )}
   </div>

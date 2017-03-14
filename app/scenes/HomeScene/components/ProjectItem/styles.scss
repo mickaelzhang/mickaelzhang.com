@@ -1,6 +1,7 @@
 @import '../../../../shared/styles/theme';
 
 .ProjectItem {
+  display: block;
   max-width: 720px;
   width: 100%;
   @include breakpoint(medium) { width: 60%; };
@@ -27,10 +28,13 @@
 
   &__Name {
     margin-bottom: 4px;
+    text-decoration: none;
+    color: inherit;
   }
 
   &__Role {
     @extend %typo-setting-two;
     font-size: 14px;
+    text-decoration: none;
   }
 }
