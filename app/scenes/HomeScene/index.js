@@ -13,7 +13,7 @@ class HomeScene extends Component {
     this.state = {
       title: 'Mickael Zhang',
       email: 'mickael.zhg@gmail.com',
-      github: 'github.com/mickaelzhang',
+      github: '//github.com/mickaelzhang',
       description: `
         Le Lorem Ipsum est simplement du faux texte employé dans la composition
         et la mise en page avant impression. Le Lorem Ipsum est le faux texte
@@ -24,11 +24,13 @@ class HomeScene extends Component {
       projects: [
         {
           name: 'Vaivai',
-          type: 'Front-End Development'
+          slug: 'vaivai',
+          type: 'WordPress Theme Development'
         },
         {
           name: 'Julien Liénard',
-          type: 'Front-End Development'
+          slug: 'julien-lienard',
+          type: 'WordPress Theme Development'
         }
       ]
     };

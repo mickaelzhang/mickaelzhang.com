@@ -6,8 +6,14 @@
   }
 
   &__Visual {
-    width: 720px;
-    height: 405px;
+    @include aspect-ratio(16, 9);
+
+    max-width: 720px;
+    width: 100%;
+    @include breakpoint(medium) {
+      width: 60%;
+    };
+
     background-color: grey;
   }
 

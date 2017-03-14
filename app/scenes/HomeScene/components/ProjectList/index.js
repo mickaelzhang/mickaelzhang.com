@@ -7,6 +7,7 @@ const ProjectList = ({projects}) => (
   <div className="ProjectList">
     {projects.map((project) =>
       <ProjectItem
+        key={project.slug}
         name={project.name}
         type={project.type}
       />

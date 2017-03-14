@@ -1,9 +1,20 @@
 @mixin breakpoint($media) {
-    @each $breakpoint-name, $pixel in $breakpoints {
-        @if $media == $breakpoint-name {
-            @media (min-width: #{$pixel}) {
-                @content;
-            }
-        }
+  @each $breakpoint-name, $pixel in $breakpoints {
+    @if $media == $breakpoint-name {
+      @media (min-width: #{$pixel}) {
+        @content;
+      }
     }
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
 }
