@@ -21,6 +21,7 @@
 
   .Logo {
     position: fixed;
+    z-index: $z-logo;
     top: 60px;
   }
 
