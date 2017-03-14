@@ -10,74 +10,28 @@ import "./styles.scss";
 class HomeScene extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      title: 'Mickael Zhang',
-      email: 'mickael.zhg@gmail.com',
-      github: '//github.com/mickaelzhang',
-      description: `
-        French student at Hetic looking for an summer intership in FrontEnd
-        Development from July to October. Feel free to contact me.
-      `,
-      projects: [
-        {
-          name: 'Vaivai',
-          slug: 'vaivai',
-          type: 'WordPress Theme Development',
-          url: '//www.vaivai.fr'
-        },
-        {
-          name: 'Julien Liénard',
-          slug: 'julien-lienard',
-          type: 'WordPress Theme Development',
-          url: '//www.julienlienard.net/'
-        },
-        {
-          name: 'Packshot Creator',
-          slug: 'packshot-create',
-          type: 'Front-End Development',
-          url: '//packshot-creator.com'
-        },
-        {
-          name: 'Parme Avocats',
-          slug: 'parme-avocats',
-          type: 'Front-End Development',
-          url: '//www.parme-avocats.com'
-        },
-      ],
-      window: {
-        viewPosY: 0
-      }
-    };
-
-    this.handleScroll = this.handleScroll.bind(this);
   }
-
-  handleScroll() {
-    const top  = window.pageYOffset || document.documentElement.scrollTop;
-
-    console.log(`top: ${top}`);
-  }
-
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.props.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.props.handleScroll);
   }
 
   render() {
+    const data = this.props.data;
+
     return (
-      <div className="HomeScene" onScroll={this.handleScroll}>
+      <div className="HomeScene">
         <div className="HomeScene__Container">
-          <Logo title={this.state.title}/>
+          <Logo title={data.title}/>
           <AboutMe
-            text={this.state.description}
-            email={this.state.email}
-            github={this.state.github}
+            text={data.description}
+            email={data.email}
+            github={data.github}
           />
-          <ProjectList projects={this.state.projects}/>
+          <ProjectList projects={data.projects}/>
           <ReturnToTop isActive={true} />
         </div>
       </div>
