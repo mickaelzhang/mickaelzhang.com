@@ -14,7 +14,8 @@
     width: 90vw;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 270px 0;
+    padding: 40vh 0 100px 0;
+    @include breakpoint(medium) { padding: 270px 0; };
 
     position: relative;
   }
