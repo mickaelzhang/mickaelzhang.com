@@ -29,4 +29,9 @@
   .AboutMe {
     margin: 0 0 0 auto;
   }
+
+  .ProjectList {
+    margin-top: 120px;
+    @include breakpoint(medium) { margin-top: 200px; };
+  }
 }
