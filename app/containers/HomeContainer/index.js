@@ -19,29 +19,33 @@ class HomeContainer extends Component {
           name: 'Vaivai',
           slug: 'vaivai',
           type: 'WordPress Theme Development',
-          url: '//www.vaivai.fr'
+          url: '//www.vaivai.fr',
+          isDisplayed: true
         },
         {
           name: 'Julien Liénard',
           slug: 'julien-lienard',
           type: 'WordPress Theme Development',
-          url: '//www.julienlienard.net/'
+          url: '//www.julienlienard.net/',
+          isDisplayed: true
         },
         {
           name: 'Packshot Creator',
           slug: 'packshot-create',
           type: 'Front-End Development',
-          url: '//packshot-creator.com'
+          url: '//packshot-creator.com',
+          isDisplayed: true
         },
         {
           name: 'Parme Avocats',
           slug: 'parme-avocats',
           type: 'Front-End Development',
-          url: '//www.parme-avocats.com'
+          url: '//www.parme-avocats.com',
+          isDisplayed: true
         },
       ],
-      window: {
-        viewPosY: 0
+      returnToTop: {
+        isActive: false
       }
     };
 
@@ -49,9 +53,13 @@ class HomeContainer extends Component {
   }
 
   handleScroll() {
-    const top  = window.pageYOffset || document.documentElement.scrollTop;
+    const topPos  = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
 
-    console.log(`top: ${top}`);
+    // Change state if window view is low enough and if the state would be different than de previous one
+    if ((windowHeight < topPos) != this.state.returnToTop.isActive) {
+      this.setState({ returnToTop: { isActive: !this.state.returnToTop.isActive } });
+    }
   }
 
   render() {

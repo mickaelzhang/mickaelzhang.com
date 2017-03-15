@@ -32,7 +32,7 @@ class HomeScene extends Component {
             github={data.github}
           />
           <ProjectList projects={data.projects}/>
-          <ReturnToTop isActive={true} />
+          <ReturnToTop isActive={data.returnToTop.isActive} />
         </div>
       </div>
     );

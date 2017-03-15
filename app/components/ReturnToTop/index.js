@@ -13,7 +13,7 @@ class ReturnToTop extends Component {
   }
 
   handleClick() {
-    this.scrollToTop(600);
+    this.scrollToTop(400);
   }
 
   render() {
