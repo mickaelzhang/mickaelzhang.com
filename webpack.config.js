@@ -28,7 +28,8 @@ module.exports = {
     alias: {
       '@components': resolve(__dirname, 'app/components/'),
       '@scenes':     resolve(__dirname, 'app/scenes/'),
-      '@containers': resolve(__dirname, 'app/containers/')
+      '@containers': resolve(__dirname, 'app/containers/'),
+      '@shared':     resolve(__dirname, 'app/shared/')
     }
   },
   module: {
@@ -51,7 +52,7 @@ module.exports = {
         ],
       },
       {
-        test   : /\.(otf|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        test   : /\.(jpg|jpeg|png|svg|otf|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
         loader : 'file-loader'
       },
     ],

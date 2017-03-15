@@ -11,13 +11,17 @@
   min-height: 100vh;
 
   &__Container {
-    width: 90vw;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40vh 0 100px 0;
-    @include breakpoint(medium) { padding: 270px 0; };
-
     position: relative;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 80vw;
+
+    padding: 40vh 0 100px 0;
+
+    @include breakpoint(medium) {
+      width: 90vw;
+      padding: 270px 0;
+    };
   }
 
   .Logo {

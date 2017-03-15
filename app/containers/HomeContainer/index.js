@@ -16,7 +16,7 @@ class HomeContainer extends Component {
       `,
       projects: [
         {
-          name: 'Vaivai',
+          name: 'Vaïvaï',
           slug: 'vaivai',
           type: 'WordPress Theme Development',
           url: '//www.vaivai.fr',
