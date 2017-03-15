@@ -1,5 +1,11 @@
 @import '../../shared/styles/theme';
 
 .Logo {
-  color: $white;
+  display: inline-block;
+  height: 1em;
+
+  &__Image {
+    height: 100%;
+    width: auto;
+  }
 }
