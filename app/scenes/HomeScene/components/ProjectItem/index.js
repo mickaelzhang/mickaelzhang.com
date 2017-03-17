@@ -30,7 +30,7 @@ class ProjectItem extends Component {
         className="ProjectItem"
         ref={(ref) => this.projectItem = ref}
       >
-        <a href={url}>
+        <a className="ProjectItem__Link" href={url}>
           <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}></div>
           <div className="ProjectItem__Title">
               <span className="ProjectItem__Name">{name}</span>

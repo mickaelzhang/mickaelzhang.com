@@ -13,6 +13,10 @@
     @include breakpoint(large) { margin-bottom: 300px; };
   }
 
+  &__Link {
+    text-decoration: none;
+  }
+
   &__Visual {
     @include aspect-ratio(16, 9);
     width: 100%;
@@ -27,14 +31,13 @@
   }
 
   &__Name {
+    @extend %typo-setting-one;
     margin-bottom: 4px;
     text-decoration: none;
-    color: inherit;
   }
 
   &__Role {
     @extend %typo-setting-two;
     font-size: 14px;
-    text-decoration: none;
   }
 }
