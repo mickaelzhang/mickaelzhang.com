@@ -1,58 +1,42 @@
 import React, { Component } from "react";
+import { debounce } from "lodash";
 
-// import img from "@shared/images/julien-lienard.png";
 import "./styles.scss";
 
 class ProjectItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      elem: {}
-    };
+    this.handleScroll = this.handleScroll.bind(this);
+  }
 
-    this.handleMouseOver = this.handleMouseOver.bind(this);
-    this.updateItemSizes = this.updateItemSizes.bind(this);
+  handleScroll() {
+    console.log('SCROLL');
   }
 
   componentDidMount() {
-    this.updateItemSizes();
-
-    window.addEventListener("resize", this.updateItemSizes);
+    window.addEventListener('scroll', debounce(this.handleScroll, 50));
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateItemSizes);
-  }
-
-  handleMouseOver() {
-    console.log(this.state.elem);
-  }
-
-  updateItemSizes() {
-    const elem = this.projectItem.getBoundingClientRect();
-
-    this.setState({elem: {
-      height: elem.height,
-      width: elem.width
-    }});
+    window.removeEventListener('scroll', debounce(this.handleScroll, 50));
   }
 
   render() {
-    console.log(this.props);
     const { name, type, url, slug, imgPath } = this.props;
 
     return (
       <article
         className="ProjectItem"
         ref={(ref) => this.projectItem = ref}
-        onMouseOver={this.handleMouseOver}
       >
-        <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}></div>
-        <div className="ProjectItem__Title">
-            <a className="ProjectItem__Name" href={url}>{name}</a>
-            <a className="ProjectItem__Role" href={url}>{type}</a>
-        </div>
+        <a href={url}>
+          <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}></div>
+          <div className="ProjectItem__Title">
+              <span className="ProjectItem__Name">{name}</span>
+              <span className="ProjectItem__Role">{type}</span>
+          </div>
+        </a>
       </article>
     );
   }

@@ -11,6 +11,7 @@ class HomeScene extends Component {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     window.addEventListener('scroll', this.props.handleScroll);
   }
