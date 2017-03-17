@@ -31,7 +31,7 @@ class HomeContainer extends Component {
         },
         {
           name: 'Packshot Creator',
-          slug: 'packshot-create',
+          slug: 'packshot-creator',
           type: 'Front-End Development',
           url: '//packshot-creator.com',
           isDisplayed: true
@@ -46,7 +46,8 @@ class HomeContainer extends Component {
       ],
       returnToTop: {
         isActive: false
-      }
+      },
+      imgPath: '/dist/images/'
     };
 
     this.handleScroll = this.handleScroll.bind(this);

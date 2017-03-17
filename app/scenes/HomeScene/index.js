@@ -31,8 +31,8 @@ class HomeScene extends Component {
             email={data.email}
             github={data.github}
           />
-          <ProjectList projects={data.projects}/>
-          <ReturnToTop isActive={data.returnToTop.isActive} />
+          <ProjectList projects={data.projects} imgPath={data.imgPath}/>
+          <ReturnToTop isActive={data.returnToTop.isActive}/>
         </div>
       </div>
     );

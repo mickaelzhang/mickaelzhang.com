@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import img from "@shared/images/julien-lienard.png";
+// import img from "@shared/images/julien-lienard.png";
 import "./styles.scss";
 
 class ProjectItem extends Component {
@@ -39,7 +39,8 @@ class ProjectItem extends Component {
   }
 
   render() {
-    const { name, type, url } = this.props;
+    console.log(this.props);
+    const { name, type, url, slug, imgPath } = this.props;
 
     return (
       <article
@@ -47,7 +48,7 @@ class ProjectItem extends Component {
         ref={(ref) => this.projectItem = ref}
         onMouseOver={this.handleMouseOver}
       >
-        <div className="ProjectItem__Visual" style={{backgroundImage: `url(${img})`}}></div>
+        <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}></div>
         <div className="ProjectItem__Title">
             <a className="ProjectItem__Name" href={url}>{name}</a>
             <a className="ProjectItem__Role" href={url}>{type}</a>
