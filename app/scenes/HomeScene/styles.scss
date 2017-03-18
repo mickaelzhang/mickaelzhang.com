@@ -20,18 +20,12 @@
 
     @include breakpoint(medium) {
       width: 90vw;
-      padding: 270px 0;
+      padding: 60px 0 270px 0;
     };
   }
 
-  .Logo {
-    position: fixed;
-    z-index: $z-logo;
-    top: 60px;
-  }
-
   .AboutMe {
-    margin: 0 0 0 auto;
+    margin: 25vh 0 0 auto;
   }
 
   .ProjectList {
