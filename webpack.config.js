@@ -64,8 +64,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|)$/,
-        loader: 'url-loader?limit=100000'
+        test: /\.(png|jpg|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          name: '[name].[ext]',
+        },
       },
       {
         test: /\.(eot|ttf|woff)?(\?v=\d+\.\d+\.\d+)?$/,
