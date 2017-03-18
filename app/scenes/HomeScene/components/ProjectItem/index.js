@@ -18,33 +18,33 @@ class ProjectItem extends Component {
   handleScroll() {
     const elem = this.projectItem.getBoundingClientRect();
 
-    if (this.props.slug === 'julien-lienard') {
-      const elemRelativeToBorder = {
-        Bottom: (window.innerHeight - elem.top),
-        Top: (elem.bottom)
-      };
+    const elemRelativeToBorder = {
+      Bottom: (window.innerHeight - elem.top),
+      Top: (elem.bottom)
+    };
 
-      const offset = {
-        top: window.innerHeight * 0.1,
-        bottom: window.innerHeight * 0.1 + 50
-      };
+    const offset = {
+      top: window.innerHeight * 0.1,
+      bottom: window.innerHeight * 0.1 + 50
+    };
 
-      if (this.state.isDisplayed) {
-        const isOutOfScreen = (elemRelativeToBorder.Bottom + offset.top) < 0
-          || (elemRelativeToBorder.Top + offset.bottom) < 0;
+    if (this.state.isDisplayed) {
+      // If the project is displayed, we hide it only if the project is
+      // completely out of screen
+      const isOutOfScreen = (elemRelativeToBorder.Bottom + offset.top) < 0
+        || (elemRelativeToBorder.Top + offset.bottom) < 0;
 
-        if (isOutOfScreen) {
-          this.setState({isDisplayed: false});
-          console.log('isDisplayed: false');
-        }
-      } else {
-        const isInScreen = 0 < (elemRelativeToBorder.Bottom - offset.top)
-          || 0 < (elemRelativeToBorder.Top - offset.bottom);
+      if (isOutOfScreen) {
+        this.setState({isDisplayed: false});
+      }
+    } else {
+      // If the project is not displayed, we display it only if the project
+      // is a little bit visible
+      const isInScreen = 0 < (elemRelativeToBorder.Bottom - offset.top)
+        && 0 < (elemRelativeToBorder.Top - offset.bottom);
 
-        if (isInScreen) {
-          this.setState({isDisplayed: true});
-          console.log('isDisplayed: true');
-        }
+      if (isInScreen) {
+        this.setState({isDisplayed: true});
       }
     }
   }
@@ -64,7 +64,7 @@ class ProjectItem extends Component {
       <article
         className={classNames(
           "ProjectItem",
-          { "ProjectItem--displayed": this.props.isDisplayed }
+          { "ProjectItem--displayed": this.state.isDisplayed }
         )}
         ref={(ref) => this.projectItem = ref}
       >
