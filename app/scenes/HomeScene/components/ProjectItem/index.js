@@ -14,10 +14,10 @@ class ProjectItem extends Component {
       isUnder: false
     };
 
-    this.handleScroll = this.handleScroll.bind(this);
+    this.updateElemState = this.updateElemState.bind(this);
   }
 
-  handleScroll() {
+  updateElemState() {
     const elem = this.projectItem.getBoundingClientRect();
 
     const elemRelativeToBorder = {
@@ -60,11 +60,13 @@ class ProjectItem extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', throttle(this.handleScroll, 50));
+    this.updateElemState();
+
+    window.addEventListener('scroll', throttle(this.updateElemState, 50));
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', throttle(this.handleScroll, 50));
+    window.removeEventListener('scroll', throttle(this.updateElemState, 50));
   }
 
   render() {
