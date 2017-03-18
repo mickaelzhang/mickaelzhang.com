@@ -9,7 +9,7 @@ class ProjectItem extends Component {
     super(props);
 
     this.state = {
-      isDisplayed: false,
+      isDisplayed: true,
       isAbove: false,
       isUnder: false
     };
@@ -46,10 +46,10 @@ class ProjectItem extends Component {
     } else {
       // If the project is not displayed, we display it only if the project
       // is a little bit visible
-      const isInScreen = 0 < (elemRelativeToBorder.Bottom)
+      const isOnScreen = 0 < (elemRelativeToBorder.Bottom)
         && 0 < (elemRelativeToBorder.Top);
 
-      if (isInScreen) {
+      if (isOnScreen) {
         this.setState({
           isDisplayed: true,
           isAbove: false,
@@ -60,8 +60,6 @@ class ProjectItem extends Component {
   }
 
   componentDidMount() {
-    this.updateElemState();
-
     window.addEventListener('scroll', throttle(this.updateElemState, 50));
   }
 
