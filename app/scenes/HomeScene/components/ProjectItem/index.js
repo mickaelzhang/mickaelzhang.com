@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { debounce } from "lodash";
+import { throttle } from "lodash";
+import classNames from "classnames";
 
 import "./styles.scss";
 
@@ -7,19 +8,53 @@ class ProjectItem extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isDisplayed: false
+    };
+
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   handleScroll() {
-    console.log('SCROLL');
+    const elem = this.projectItem.getBoundingClientRect();
+
+    if (this.props.slug === 'julien-lienard') {
+      const elemRelativeToBorder = {
+        Bottom: (window.innerHeight - elem.top),
+        Top: (elem.bottom)
+      };
+
+      const offset = {
+        top: window.innerHeight * 0.1,
+        bottom: window.innerHeight * 0.1 + 50
+      };
+
+      if (this.state.isDisplayed) {
+        const isOutOfScreen = (elemRelativeToBorder.Bottom + offset.top) < 0
+          || (elemRelativeToBorder.Top + offset.bottom) < 0;
+
+        if (isOutOfScreen) {
+          this.setState({isDisplayed: false});
+          console.log('isDisplayed: false');
+        }
+      } else {
+        const isInScreen = 0 < (elemRelativeToBorder.Bottom - offset.top)
+          || 0 < (elemRelativeToBorder.Top - offset.bottom);
+
+        if (isInScreen) {
+          this.setState({isDisplayed: true});
+          console.log('isDisplayed: true');
+        }
+      }
+    }
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', debounce(this.handleScroll, 50));
+    window.addEventListener('scroll', throttle(this.handleScroll, 50));
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', debounce(this.handleScroll, 50));
+    window.removeEventListener('scroll', throttle(this.handleScroll, 50));
   }
 
   render() {
@@ -27,7 +62,10 @@ class ProjectItem extends Component {
 
     return (
       <article
-        className="ProjectItem"
+        className={classNames(
+          "ProjectItem",
+          { "ProjectItem--displayed": this.props.isDisplayed }
+        )}
         ref={(ref) => this.projectItem = ref}
       >
         <a className="ProjectItem__Link" href={url}>
