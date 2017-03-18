@@ -3,8 +3,10 @@ const DATA = {
   email: 'mickael.zhg@gmail.com',
   github: '//github.com/mickaelzhang',
   description: `
-    French student at Hetic looking for an summer intership in FrontEnd
-    Development from July to October. Feel free to contact me.
+    French student at Hetic and freelancer in my free time. I love learning
+    things related to development even though I'm specilized in frontend
+    development. I inform myself on backend and devops as well. Currently looking
+    for a 4 months internship. Feel free to contact me for any inquiries !
   `,
   projects: [
     {
