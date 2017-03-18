@@ -9,7 +9,9 @@ class ProjectItem extends Component {
     super(props);
 
     this.state = {
-      isDisplayed: false
+      isDisplayed: false,
+      isAbove: false,
+      isUnder: false
     };
 
     this.handleScroll = this.handleScroll.bind(this);
@@ -31,20 +33,28 @@ class ProjectItem extends Component {
     if (this.state.isDisplayed) {
       // If the project is displayed, we hide it only if the project is
       // completely out of screen
-      const isOutOfScreen = (elemRelativeToBorder.Bottom + offset.top) < 0
-        || (elemRelativeToBorder.Top + offset.bottom) < 0;
+      const isUnderWindow = (elemRelativeToBorder.Bottom) < 0;
+      const isAboveWindow = (elemRelativeToBorder.Top) < 0;
 
-      if (isOutOfScreen) {
-        this.setState({isDisplayed: false});
+      if (isUnderWindow || isAboveWindow) {
+        this.setState({
+          isDisplayed: false,
+          isAbove: isAboveWindow,
+          isUnder: isUnderWindow
+        });
       }
     } else {
       // If the project is not displayed, we display it only if the project
       // is a little bit visible
-      const isInScreen = 0 < (elemRelativeToBorder.Bottom - offset.top)
-        && 0 < (elemRelativeToBorder.Top - offset.bottom);
+      const isInScreen = 0 < (elemRelativeToBorder.Bottom)
+        && 0 < (elemRelativeToBorder.Top);
 
       if (isInScreen) {
-        this.setState({isDisplayed: true});
+        this.setState({
+          isDisplayed: true,
+          isAbove: false,
+          isUnder: false
+        });
       }
     }
   }
@@ -64,12 +74,17 @@ class ProjectItem extends Component {
       <article
         className={classNames(
           "ProjectItem",
-          { "ProjectItem--displayed": this.state.isDisplayed }
+          {
+            "ProjectItem--displayed": this.state.isDisplayed,
+            "ProjectItem--above": this.state.isAbove,
+            "ProjectItem--under": this.state.isUnder,
+          }
         )}
         ref={(ref) => this.projectItem = ref}
       >
         <a className="ProjectItem__Link" href={url}>
-          <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}></div>
+          <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath + slug}.png)`}}>
+          </div>
           <div className="ProjectItem__Title">
               <span className="ProjectItem__Name">{name}</span>
               <span className="ProjectItem__Role">{type}</span>

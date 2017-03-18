@@ -6,11 +6,28 @@
   width: 100%;
   @include breakpoint(medium) { width: 60%; };
 
+  opacity: 0;
+  transform: translateY(0);
+  transition: transform 5s cubic-bezier(0.18, 1, 0.21, 1), opacity 5s cubic-bezier(0.18, 1, 0.21, 1);
+
   &:not(:last-child) {
     margin-bottom: 80px;
     @include breakpoint(small) { margin-bottom: 120px; };
     @include breakpoint(medium) { margin-bottom: 200px; };
     @include breakpoint(large) { margin-bottom: 300px; };
+  }
+
+  &--displayed {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &--above {
+    transform: translateY(-1.6vw);
+  }
+
+  &--under {
+    transform: translateY(1.6vw);
   }
 
   &__Link {
@@ -24,6 +41,8 @@
     background-color: grey;
     background-size: cover;
     background-position: top center;
+
+    position: relative;
   }
 
   &__Title {
