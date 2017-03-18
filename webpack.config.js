@@ -52,8 +52,20 @@ module.exports = {
         ],
       },
       {
-        test   : /\.(jpg|jpeg|png|svg|otf|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-        loader : 'file-loader'
+        test: /\.(png|svg|)$/,
+        loader: 'url-loader?limit=100000'
+      },
+      {
+        test: /\.(eot|ttf|woff)?(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 50000,
+          // Output below the fonts directory
+          name: './fonts/[name].[ext]',
+          // Tweak publicPath to fix CSS lookups to take
+          // the directory into account.
+          publicPath: '/dist/',
+        },
       },
     ],
   },
