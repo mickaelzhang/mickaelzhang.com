@@ -35,11 +35,6 @@ class ProjectItem extends Component {
       Top: (elem.bottom)
     };
 
-    const offset = {
-      top: window.innerHeight * 0.1,
-      bottom: window.innerHeight * 0.1 + 50
-    };
-
     if (this.state.isDisplayed) {
       // If the project is displayed, we hide it only if the project is
       // completely out of screen
