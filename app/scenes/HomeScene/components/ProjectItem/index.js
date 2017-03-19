@@ -17,6 +17,16 @@ class ProjectItem extends Component {
     this.updateElemState = this.updateElemState.bind(this);
   }
 
+  componentDidMount() {
+    this.updateElemState();
+
+    window.addEventListener('scroll', throttle(this.updateElemState, 50));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', throttle(this.updateElemState, 50));
+  }
+
   updateElemState() {
     const elem = this.projectItem.getBoundingClientRect();
 
@@ -57,14 +67,6 @@ class ProjectItem extends Component {
         });
       }
     }
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', throttle(this.updateElemState, 50));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', throttle(this.updateElemState, 50));
   }
 
   render() {
