@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 import HomeContainer from "@containers/HomeContainer";
 
-import "./shared/styles/general.scss";
+import "@shared/styles/general.scss";
 
 render(
   <HomeContainer />,

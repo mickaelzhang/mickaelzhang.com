@@ -1,6 +1,5 @@
 node_modules/
 
-web/dist/*
-!web/dist/images
+build/
 
 .DS_Store
