@@ -36,8 +36,7 @@ const DATA = {
   ],
   returnToTop: {
     isActive: false
-  },
-  imgPath: '/dist/images/'
+  }
 };
 
 export default DATA;

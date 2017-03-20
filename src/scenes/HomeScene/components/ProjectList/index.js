@@ -3,7 +3,7 @@ import ProjectItem from "../ProjectItem";
 
 import "./styles.scss";
 
-const ProjectList = ({projects, imgPath}) => (
+const ProjectList = ({projects}) => (
   <div className="ProjectList">
     {projects.map((project) =>
       <ProjectItem
@@ -12,7 +12,6 @@ const ProjectList = ({projects, imgPath}) => (
         name={project.name}
         type={project.type}
         url={project.url}
-        imgPath={imgPath}
       />
     )}
   </div>

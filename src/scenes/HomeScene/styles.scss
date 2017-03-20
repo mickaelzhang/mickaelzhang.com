@@ -1,5 +1,9 @@
 @import '../../shared/styles/theme';
 
+body {
+  background-color: $background-color;
+}
+
 .HomeScene {
   @extend %typo-setting-one;
 
