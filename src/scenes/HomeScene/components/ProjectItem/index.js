@@ -36,51 +36,35 @@ class ProjectItem extends Component {
       Top: (elem.bottom)
     };
 
-    if (this.state.isDisplayed) {
-      // If the project is displayed, we hide it only if the project is
-      // completely out of screen
-      const isUnderWindow = (elemRelativeToBorder.Bottom) < 0;
-      const isAboveWindow = (elemRelativeToBorder.Top) < 0;
+    const isUnderWindow = (elemRelativeToBorder.Bottom) < 0;
+    const isAboveWindow = (elemRelativeToBorder.Top) < 0;
 
-      if (isUnderWindow || isAboveWindow) {
-        this.setState({
-          isDisplayed: false,
-          isAbove: isAboveWindow,
-          isUnder: isUnderWindow
-        });
-      }
-    } else {
-      // If the project is not displayed, we display it only if the project
-      // is a little bit visible
-      const isOnScreen = 0 < (elemRelativeToBorder.Bottom)
-        && 0 < (elemRelativeToBorder.Top);
-
-      if (isOnScreen) {
-        this.setState({
-          isDisplayed: true,
-          isAbove: false,
-          isUnder: false
-        });
-      }
+    if (!isUnderWindow && !isAboveWindow) {
+      this.setState({
+        isDisplayed: true,
+        isAbove: false,
+        isUnder: false
+      });
+    } else if (isUnderWindow || isAboveWindow) {
+      this.setState({
+        isDisplayed: false,
+        isAbove: isAboveWindow,
+        isUnder: isUnderWindow
+      });
     }
   }
 
   render() {
     const { name, type, url, slug } = this.props;
-    const imgPath = require('@shared/images/'+slug+'.png');
+    const imgPath = require(`@shared/images/${slug}.png`);
+    const projectClass = classNames("ProjectItem", {
+      "ProjectItem--displayed": this.state.isDisplayed,
+      "ProjectItem--above": this.state.isAbove,
+      "ProjectItem--under": this.state.isUnder,
+    });
 
     return (
-      <article
-        className={classNames(
-          "ProjectItem",
-          {
-            "ProjectItem--displayed": this.state.isDisplayed,
-            "ProjectItem--above": this.state.isAbove,
-            "ProjectItem--under": this.state.isUnder,
-          }
-        )}
-        ref={(ref) => this.projectItem = ref}
-      >
+      <article className={projectClass} ref={(ref) => this.projectItem = ref}>
         <Link className="ProjectItem__Link" to={`/projects/${slug}`}>
           <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath})`}}>
           </div>
