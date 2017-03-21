@@ -67,7 +67,8 @@ class ProjectItem extends Component {
 
   render() {
     const { name, type, url, slug } = this.props;
-    const imgPath = '@shared/images/'+slug+'.png';
+    const imgPath = require('@shared/images/'+slug+'.png');
+
     return (
       <article
         className={classNames(
@@ -81,7 +82,7 @@ class ProjectItem extends Component {
         ref={(ref) => this.projectItem = ref}
       >
         <Link className="ProjectItem__Link" to={`/projects/${slug}`}>
-          <div className="ProjectItem__Visual" style={{backgroundImage: `url(${require('@shared/images/'+slug+'.png')})`}}>
+          <div className="ProjectItem__Visual" style={{backgroundImage: `url(${imgPath})`}}>
           </div>
           <div className="ProjectItem__Title">
               <span className="ProjectItem__Name">{name}</span>
