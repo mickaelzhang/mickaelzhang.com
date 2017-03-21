@@ -25,16 +25,13 @@ class HomeScene extends Component {
 
     return (
       <div className="HomeScene">
-        <div className="HomeScene__Container">
-          <Logo title={data.title}/>
-          <AboutMe
-            text={data.description}
-            email={data.email}
-            github={data.github}
-          />
-          <ProjectList projects={data.projects}/>
-          <ReturnToTop isActive={data.returnToTop.isActive}/>
-        </div>
+        <AboutMe
+          text={data.description}
+          email={data.email}
+          github={data.github}
+        />
+        <ProjectList projects={data.projects}/>
+        <ReturnToTop isActive={data.returnToTop.isActive}/>
       </div>
     );
   }
