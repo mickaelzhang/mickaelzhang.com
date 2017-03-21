@@ -1,11 +1,13 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import logo from "./logo.svg";
 import "./styles.scss";
 
 const Logo = ({title}) => (
-  <h1 className="Logo">
+  <Link to="/" className="Logo">
     <img className="Logo__Image" src={logo} alt="Mickael Zhang"/>
-  </h1>
+  </Link>
 );
 
 export default Logo;
