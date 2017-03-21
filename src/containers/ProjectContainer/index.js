@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router';
 
-import projectsInfo from "@data/projects.js";
+import projectsInfo from "@data/projects";
+import ProjectScene from "@scenes/ProjectScene";
 
 class ProjectContainer extends Component {
   constructor(props) {
@@ -13,11 +15,21 @@ class ProjectContainer extends Component {
     );
 
     const project = projectsInfo.filter(matchSlug);
+    const projectIsFound = project.length === 1;
+
+    this.state = {
+      isFound: projectIsFound,
+      data: projectIsFound ? project[0] : null
+    };
   }
 
   render() {
     return (
-      <div style={{color: 'white'}}>ok</div>
+      this.state.isFound ? (
+        <ProjectScene data={this.state.data}/>
+      ) : (
+        <Redirect to="/"/>
+      )
     );
   }
 }

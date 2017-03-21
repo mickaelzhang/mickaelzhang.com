@@ -1,6 +1,5 @@
 import React from "react";
 
-import Logo from "@components/Logo";
 import ReturnToTop from "@components/ReturnToTop";
 import AboutMe from "./components/AboutMe";
 import ProjectList from "./components/ProjectList";
