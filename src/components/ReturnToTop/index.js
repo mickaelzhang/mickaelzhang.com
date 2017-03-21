@@ -15,15 +15,15 @@ class ReturnToTop extends Component {
     };
 
     this.handleScroll = this.handleScroll.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = throttle(this.handleClick.bind(this), 500);
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', throttle(this.handleScroll, 500));
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', throttle(this.handleScroll, 500));
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   render() {

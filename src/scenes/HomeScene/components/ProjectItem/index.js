@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { throttle } from "lodash";
 import classNames from "classnames";
+import { Link } from 'react-router-dom';
 
 import "./styles.scss";
 
@@ -14,17 +15,17 @@ class ProjectItem extends Component {
       isUnder: false
     };
 
-    this.updateElemState = this.updateElemState.bind(this);
+    this.updateElemState = throttle(this.updateElemState.bind(this), 50);
   }
 
   componentDidMount() {
     this.updateElemState();
 
-    window.addEventListener('scroll', throttle(this.updateElemState, 50));
+    window.addEventListener('scroll', this.updateElemState);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', throttle(this.updateElemState, 50));
+    window.removeEventListener('scroll', this.updateElemState);
   }
 
   updateElemState() {
@@ -79,14 +80,14 @@ class ProjectItem extends Component {
         )}
         ref={(ref) => this.projectItem = ref}
       >
-        <a className="ProjectItem__Link" href={url}>
+        <Link className="ProjectItem__Link" to={`/projects/${slug}`}>
           <div className="ProjectItem__Visual" style={{backgroundImage: `url(${require('@shared/images/'+slug+'.png')})`}}>
           </div>
           <div className="ProjectItem__Title">
               <span className="ProjectItem__Name">{name}</span>
               <span className="ProjectItem__Role">{type}</span>
           </div>
-        </a>
+        </Link>
       </article>
     );
   }
