@@ -1,20 +1,25 @@
 import React, { Component } from "react";
 
-import DATA from "./data.js";
+import homeInfo from "@data/home.js";
+import projectsInfo from "@data/projects.js";
+
 import HomeScene from "@scenes/HomeScene";
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = DATA;
+    this.state = {
+      homeInfo,
+      projectsInfo
+    };
   }
 
   render() {
     return (
       <HomeScene
-        handleScroll={this.handleScroll}
-        data={this.state}
+        homeInfo={homeInfo}
+        projectsInfo={projectsInfo}
       />
     );
   }

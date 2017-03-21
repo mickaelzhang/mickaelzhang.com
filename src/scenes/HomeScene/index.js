@@ -13,7 +13,8 @@ class HomeScene extends Component {
   }
 
   render() {
-    const data = this.props.data;
+    const data = this.props.homeInfo;
+    const projects = this.props.projectsInfo;
 
     return (
       <div className="HomeScene">
@@ -22,7 +23,7 @@ class HomeScene extends Component {
           email={data.email}
           github={data.github}
         />
-        <ProjectList projects={data.projects}/>
+        <ProjectList projects={projects}/>
         <ReturnToTop/>
       </div>
     );

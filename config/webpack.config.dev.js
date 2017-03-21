@@ -74,6 +74,7 @@ module.exports = {
       '@scenes':     resolve(paths.appSrc, 'scenes'),
       '@containers': resolve(paths.appSrc, 'containers'),
       '@shared':     resolve(paths.appSrc, 'shared'),
+      '@data':       resolve(paths.appSrc, 'data'),
     },
     // https://webpack.js.org/configuration/resolve/
     modules: [
