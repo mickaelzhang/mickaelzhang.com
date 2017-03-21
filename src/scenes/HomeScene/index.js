@@ -12,14 +12,6 @@ class HomeScene extends Component {
     super(props);
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.props.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.props.handleScroll);
-  }
-
   render() {
     const data = this.props.data;
 
