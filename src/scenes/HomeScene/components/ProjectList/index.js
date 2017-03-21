@@ -11,7 +11,6 @@ const ProjectList = ({projects}) => (
         slug={project.slug}
         name={project.name}
         type={project.type}
-        url={project.url}
       />
     )}
   </div>

@@ -8,11 +8,6 @@ import HomeScene from "@scenes/HomeScene";
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      homeInfo,
-      projectsInfo
-    };
   }
 
   render() {

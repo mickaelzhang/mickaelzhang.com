@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Logo from "@components/Logo";
 import ReturnToTop from "@components/ReturnToTop";
@@ -7,27 +7,16 @@ import ProjectList from "./components/ProjectList";
 
 import "./styles.scss";
 
-class HomeScene extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const data = this.props.homeInfo;
-    const projects = this.props.projectsInfo;
-
-    return (
-      <div className="HomeScene">
-        <AboutMe
-          text={data.description}
-          email={data.email}
-          github={data.github}
-        />
-        <ProjectList projects={projects}/>
-        <ReturnToTop/>
-      </div>
-    );
-  }
-}
+const HomeScene = ({homeInfo, projectsInfo}) => (
+  <div className="HomeScene">
+    <AboutMe
+      text={homeInfo.description}
+      email={homeInfo.email}
+      github={homeInfo.github}
+    />
+    <ProjectList projects={projectsInfo}/>
+    <ReturnToTop/>
+  </div>
+);
 
 export default HomeScene;
