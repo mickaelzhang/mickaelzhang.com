@@ -6,12 +6,18 @@ import ProjectPreview from "./components/ProjectPreview";
 // import "./styles.scss";
 
 const ProjectScene = ({data}) => {
+  const previewList = [];
+
+  for (var i = 0; i < data.previewNumber; i++) {
+    previewList.push(<ProjectPreview key={i} slug={data.slug} index={i} />)
+  }
+
   return (
     <div className="ProjectScene">
       <ProjectInfo
         name={data.name}
       />
-      <ProjectPreview slug={data.slug}/>
+      {previewList}
     </div>
   );
 };
