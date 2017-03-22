@@ -1,6 +1,7 @@
 import React from "react";
 
 import Logo from "@components/Logo";
+import ReturnToTop from "@components/ReturnToTop";
 
 import "./styles.scss";
 
@@ -11,6 +12,7 @@ const AppWrapper = ({children}) => (
       <div>
         {children}
       </div>
+      <ReturnToTop/>
     </div>
   </div>
 );
