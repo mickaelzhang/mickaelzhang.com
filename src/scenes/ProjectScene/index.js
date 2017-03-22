@@ -16,6 +16,8 @@ const ProjectScene = ({data}) => {
     <div className="ProjectScene">
       <ProjectInfo
         name={data.name}
+        description={data.description}
+        url={data.url}
       />
       {previewList}
     </div>

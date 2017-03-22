@@ -4,9 +4,20 @@
   width: 100%;
   max-width: 500px;
 
-  &__ProjectName {
+  &__Name {
     @extend %typo-setting-one;
     font-size: 40px;
     margin-bottom: 40px;
+  }
+
+  &__Description {
+    margin-bottom: 30px;
+    line-height: 24px;
+  }
+
+  &__Link {
+    @extend %typo-setting-two;
+
+    text-decoration: none;
   }
 }
