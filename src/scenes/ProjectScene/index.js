@@ -3,7 +3,7 @@ import React from "react";
 import ProjectInfo from "./components/ProjectInfo";
 import ProjectPreview from "./components/ProjectPreview";
 
-// import "./styles.scss";
+import "./styles.scss";
 
 const ProjectScene = ({data}) => {
   const previewList = [];

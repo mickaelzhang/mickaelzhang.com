@@ -1,16 +1,4 @@
 @import '../../shared/styles/theme';
 
-.HomeScene {
-  .AboutMe {
-    margin: 140px 0 100px 0;
-
-    @include breakpoint(medium) {
-      margin: 25vh 0 0 auto;
-    };
-  }
-
-  .ProjectList {
-    margin-top: 120px;
-    @include breakpoint(medium) { margin-top: 200px; };
-  }
+.ProjectScene {
 }
