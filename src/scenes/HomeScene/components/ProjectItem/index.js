@@ -56,7 +56,7 @@ class ProjectItem extends Component {
 
   render() {
     const { name, type, url, slug } = this.props;
-    const imgPath = require(`@shared/images/${slug}_visual.png`);
+    const imgPath = require(`@shared/images/${slug}_visual.jpg`);
     const projectClass = classNames("ProjectItem", {
       "ProjectItem--displayed": this.state.isDisplayed,
       "ProjectItem--above": this.state.isAbove,
