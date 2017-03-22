@@ -3,5 +3,9 @@
 .ProjectScene {
   .ProjectInfo {
     margin: 140px 0 100px 0;
+
+    @include breakpoint(medium) {
+      margin: 140px 0 100px 10%;
+    };
   }
 }
