@@ -1,5 +1,7 @@
 import React from "react";
 
+import TopOnMount from "@components/TopOnMount";
+
 import AboutMe from "./components/AboutMe";
 import ProjectList from "./components/ProjectList";
 
@@ -13,6 +15,7 @@ const HomeScene = ({homeInfo, projectsInfo}) => (
       github={homeInfo.github}
     />
     <ProjectList projects={projectsInfo}/>
+    <TopOnMount/>
   </div>
 );
 

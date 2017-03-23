@@ -1,5 +1,7 @@
 import React from "react";
 
+import TopOnMount from "@components/TopOnMount";
+
 import ProjectInfo from "./components/ProjectInfo";
 import ProjectPreview from "./components/ProjectPreview";
 
@@ -20,6 +22,7 @@ const ProjectScene = ({data}) => {
         url={data.url}
       />
       {previewList}
+      <TopOnMount />
     </div>
   );
 };

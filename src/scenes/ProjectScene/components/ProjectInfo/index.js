@@ -5,7 +5,7 @@ const ProjectInfo = ({name, description, url}) => (
   <div className="ProjectInfo">
     <div className="ProjectInfo__Name">{name}</div>
     <div className="ProjectInfo__Description">{description}</div>
-    <a className="ProjectInfo__Link" href={url}>View project</a>
+    <a className="ProjectInfo__Link" href={url}>View website</a>
   </div>
 );
 
