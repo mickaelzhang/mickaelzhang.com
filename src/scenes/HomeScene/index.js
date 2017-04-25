@@ -8,15 +8,15 @@ import ProjectList from "./components/ProjectList";
 import "./styles.scss";
 
 const HomeScene = ({homeInfo, projectsInfo}) => (
-  <div className="HomeScene">
-    <AboutMe
-      text={homeInfo.description}
-      email={homeInfo.email}
-      github={homeInfo.github}
-    />
-    <ProjectList projects={projectsInfo}/>
-    <TopOnMount/>
-  </div>
+    <div className="HomeScene">
+      <AboutMe
+        text={homeInfo.description}
+        email={homeInfo.email}
+        github={homeInfo.github}
+      />
+      <ProjectList projects={projectsInfo}/>
+      <TopOnMount/>
+    </div>
 );
 
 export default HomeScene;

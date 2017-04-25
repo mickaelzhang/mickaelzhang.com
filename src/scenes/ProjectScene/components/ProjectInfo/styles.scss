@@ -15,9 +15,37 @@
     line-height: 24px;
   }
 
+  &__ProjectInfo {
+    overflow: hidden;
+  }
+
   &__Link {
     @extend %typo-setting-two;
 
     text-decoration: none;
+  }
+
+  &-appear &__Name, &-appear &__Description {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  &-appear-active &__Name, &-appear-active &__Description {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 600ms ease-out, transform 800ms ease-out;
+  }
+
+  &-appear-active &__Description {
+    transition-delay: 160ms;
+  }
+  &-appear &__ProjectInfoContainer {
+    transform: translateY(100%);
+  }
+
+  &-appear-active &__ProjectInfoContainer {
+    transform: translateY(0);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+    transition-delay: 320ms;
   }
 }

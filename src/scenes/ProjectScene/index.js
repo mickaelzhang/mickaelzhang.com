@@ -3,17 +3,11 @@ import React from "react";
 import TopOnMount from "@components/TopOnMount";
 
 import ProjectInfo from "./components/ProjectInfo";
-import ProjectPreview from "./components/ProjectPreview";
+import PreviewList from "./components/PreviewList";
 
 import "./styles.scss";
 
 const ProjectScene = ({data}) => {
-  const previewList = [];
-
-  for (var i = 0; i < data.previewNumber; i++) {
-    previewList.push(<ProjectPreview key={i} slug={data.slug} index={i} />)
-  }
-
   return (
     <div className="ProjectScene">
       <ProjectInfo
@@ -21,7 +15,7 @@ const ProjectScene = ({data}) => {
         description={data.description}
         url={data.url}
       />
-      {previewList}
+      <PreviewList previewNumber={data.previewNumber} slug={data.slug} />
       <TopOnMount />
     </div>
   );
