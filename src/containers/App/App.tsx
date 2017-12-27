@@ -14,6 +14,9 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <div>
+          {this.props.children}
+        </div>
       </div>
     );
   }
