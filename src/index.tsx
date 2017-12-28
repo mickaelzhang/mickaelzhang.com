@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -6,18 +7,23 @@ import App from './containers/App';
 import HomeContainer from './containers/HomeContainer';
 import ProjectDetailContainer from './containers/ProjectDetailContainer';
 
+import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
+const store = configureStore();
+
 ReactDOM.render(
-  <Router>
-    <App>
-      <Switch>
-        <Route exact path="/" component={HomeContainer} />
-        <Route path="/projects/:slug" component={ProjectDetailContainer} />
-      </Switch>
-    </App>
-  </Router>,
+  <Provider store={store}>
+    <Router>
+      <App>
+        <Switch>
+          <Route exact path="/" component={HomeContainer} />
+          <Route path="/projects/:slug" component={ProjectDetailContainer} />
+        </Switch>
+      </App>
+    </Router>
+  </Provider>,
   document.getElementById('root') as HTMLElement
 );
 
