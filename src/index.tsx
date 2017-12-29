@@ -9,7 +9,7 @@ import ProjectDetailContainer from './containers/ProjectDetailContainer';
 
 import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import './index.scss';
 
 const store = configureStore();
 

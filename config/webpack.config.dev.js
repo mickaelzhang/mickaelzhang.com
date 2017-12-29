@@ -95,7 +95,7 @@ module.exports = {
       '.jsx',
     ],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -152,13 +152,14 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('ts-loader'),
           },
+          // "sass" loader compile SCSS into CSS file.
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
             use: [
               require.resolve('style-loader'),
               {
@@ -186,6 +187,9 @@ module.exports = {
                     }),
                   ],
                 },
+              },
+              {
+                loader: require.resolve('sass-loader'),
               },
             ],
           },
