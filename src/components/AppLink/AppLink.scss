@@ -1,0 +1,9 @@
+@import '~styles/utils';
+
+.AppLink {
+  text-decoration: none;
+  text-transform: lowercase;
+  color: $color-font-primary;
+  font-size: 12px;
+  margin: 0 24px;
+}
