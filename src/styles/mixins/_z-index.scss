@@ -1,0 +1,19 @@
+/**
+ * z-index function
+ * Apply z-index corresponding to the element
+ *
+ * Possible value (from lowest to highest):
+ * content (100) | nav (200) | dropdown (300) | modal (400) | loader (500)
+ *
+ * To change those value go to: /src/styles/variables/_z-index.scss
+ *
+ * Example:
+ * @include z-index('dropdown');
+ * => z-index: 300;
+ *
+ * @include z-index('nav', 3);
+ * => z-index: 203;
+ */
+@mixin z-index($component, $level: "0") {
+  z-index: #{map-get($z-index, $component)}#{$level};
+}
