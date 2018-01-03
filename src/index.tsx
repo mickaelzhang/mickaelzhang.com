@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import App from './containers/App';
 import HomeContainer from './containers/HomeContainer';
+import AboutContainer from './containers/AboutContainer';
 import ProjectDetailContainer from './containers/ProjectDetailContainer';
 
 import configureStore from './configureStore';
@@ -20,6 +21,7 @@ ReactDOM.render(
       <App>
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route path="/about" component={AboutContainer} />
           <Route path="/projects/:slug" component={ProjectDetailContainer} />
         </Switch>
       </App>
