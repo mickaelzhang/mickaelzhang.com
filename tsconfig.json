@@ -9,13 +9,21 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
+    "baseUrl": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "paths": {
+      "@actions/*": [ "actions/*" ],
+      "@assets/*": [ "assets/*" ],
+      "@components/*": [ "components/*" ],
+      "@containers/*": [ "containers/*" ],
+      "@reducers/*": [ "reducers/*" ]
+    }
   },
   "exclude": [
     "node_modules",

@@ -1,8 +1,8 @@
 import * as React from 'react';
 // import { Link } from 'react-router-dom';
 
-import Logo from '../Logo';
-import AppLink from '../AppLink';
+import Logo from '@components/Logo';
+import AppLink from '@components/AppLink';
 
 import './NavBar.scss';
 

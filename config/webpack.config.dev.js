@@ -95,7 +95,13 @@ module.exports = {
       '.jsx',
     ],
     alias: {
-
+      // Add custom project alias
+      // Make sure to update both .dev and .prod config, as well as tsconfig.json file
+      '@actions': paths.appSrc + '/actions',
+      '@assets': paths.appSrc + '/assets',
+      '@components': paths.appSrc + '/components',
+      '@containers': paths.appSrc + '/containers',
+      '@reducers': paths.appSrc + '/reducers',
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
