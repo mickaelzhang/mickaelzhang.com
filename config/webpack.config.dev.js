@@ -101,6 +101,7 @@ module.exports = {
       '@assets': paths.appSrc + '/assets',
       '@components': paths.appSrc + '/components',
       '@containers': paths.appSrc + '/containers',
+      '@models': paths.appSrc + '/models',
       '@reducers': paths.appSrc + '/reducers',
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/

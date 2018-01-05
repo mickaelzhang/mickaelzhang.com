@@ -22,6 +22,7 @@
       "@assets/*": [ "assets/*" ],
       "@components/*": [ "components/*" ],
       "@containers/*": [ "containers/*" ],
+      "@models/*": [ "models/*" ],
       "@reducers/*": [ "reducers/*" ]
     }
   },
