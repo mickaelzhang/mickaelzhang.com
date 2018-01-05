@@ -107,6 +107,8 @@ module.exports = {
       '@containers': paths.appSrc + '/containers',
       '@models': paths.appSrc + '/models',
       '@reducers': paths.appSrc + '/reducers',
+      '@services': paths.appSrc + '/services',
+      '@utils': paths.appSrc + '/utils',
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',

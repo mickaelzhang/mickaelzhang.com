@@ -23,7 +23,9 @@
       "@components/*": [ "components/*" ],
       "@containers/*": [ "containers/*" ],
       "@models/*": [ "models/*" ],
-      "@reducers/*": [ "reducers/*" ]
+      "@reducers/*": [ "reducers/*" ],
+      "@services/*": [ "services/*" ],
+      "@utils/*": [ "utils/*" ]
     }
   },
   "exclude": [
