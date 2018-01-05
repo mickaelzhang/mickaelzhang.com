@@ -4,11 +4,11 @@ import { projectReducer, ProjectState } from './projectReducer';
 
 interface StoreEnhancerState {}
 
-export interface RootState extends StoreEnhancerState {
+export interface AppState extends StoreEnhancerState {
   projects: ProjectState;
 }
 
-const rootReducer = combineReducers<RootState>({
+const rootReducer = combineReducers<AppState>({
   projects: projectReducer
 });
 
