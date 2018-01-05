@@ -25,7 +25,8 @@
       "@models/*": [ "models/*" ],
       "@reducers/*": [ "reducers/*" ],
       "@services/*": [ "services/*" ],
-      "@utils/*": [ "utils/*" ]
+      "@utils/*": [ "utils/*" ],
+      "config": [ "../config/settings.js" ],
     }
   },
   "exclude": [
