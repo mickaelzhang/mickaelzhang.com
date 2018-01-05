@@ -352,4 +352,7 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
+  externals: {
+    'config': JSON.stringify(require('./settings.js'))
+  },
 };

@@ -280,4 +280,7 @@ module.exports = {
   performance: {
     hints: false,
   },
+  externals: {
+    'config': JSON.stringify(require('./settings.js'))
+  },
 };
