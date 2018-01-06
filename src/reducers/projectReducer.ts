@@ -30,7 +30,7 @@ export default function projectReducer(state: ProjectState = initialState, actio
       );
 
       return {...state,
-        allIds: { ...state.allIds, ...projectIds},
+        allIds: [...state.allIds, ...projectIds],
         byId: { ...state.byId, ...newEntities}
       };
     }

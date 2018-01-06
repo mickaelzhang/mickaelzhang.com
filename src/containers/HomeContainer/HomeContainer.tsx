@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import Project from '@models/project';
 import { AppState } from '@reducers/index';
+import { getAll } from '@reducers/projectReducer';
 import { fetchProjectList } from '@actions/projectActions';
 
 interface StateProps {
+  projects: Project[];
 }
 
 interface DispatchProps {
@@ -27,7 +30,9 @@ class HomeContainer extends React.Component<HomeProps> {
   }
 }
 
-const mapStateToProps = (state: AppState) => ({});
+const mapStateToProps = (state: AppState) => ({
+  projects: getAll(state)
+});
 
 const mapDispatchToProps = {
   fetchProjectList
