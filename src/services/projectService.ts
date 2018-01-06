@@ -18,9 +18,9 @@ class ProjectService {
    *
    * Method GET - /projects/:id
    */
-  static async getRessourceById(id: number): Promise<AxiosResponse> {
+  static async getRessourceBySlug(slug: string): Promise<AxiosResponse> {
     return new Promise((resolve, reject) => {
-      resolve(api.get(`/projects/${id}`));
+      resolve(api.get(`/projects/${slug}`));
     }) as Promise<AxiosResponse>;
   }
 }
