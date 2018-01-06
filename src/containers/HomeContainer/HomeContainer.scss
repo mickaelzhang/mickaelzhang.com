@@ -1,0 +1,10 @@
+.Home {
+  &__ProjectList {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__ProjectCard {
+    margin: 20px;
+  }
+}

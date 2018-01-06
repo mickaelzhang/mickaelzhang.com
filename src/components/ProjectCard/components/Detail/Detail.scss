@@ -1,0 +1,20 @@
+@import '~styles/utils';
+
+.Detail {
+  display: flex;
+  flex-direction: column;
+
+  &__Label {
+    text-transform: uppercase;
+    font-family: $font-family-title;
+    font-size: 8px;
+    font-weight: bold;
+    color: $color-font-secondary;
+  }
+
+  &__Detail {
+    font-family: $font-family-text;
+    font-size: 14px;
+    color: $color-font-primary;
+  }
+}

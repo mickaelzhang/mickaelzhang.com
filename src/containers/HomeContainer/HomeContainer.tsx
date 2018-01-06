@@ -2,9 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Project from '@models/project';
-import { AppState } from '@reducers/index';
-import { projects } from '@reducers/index';
+import { AppState, projects } from '@reducers/index';
 import { fetchProjectList } from '@actions/projectActions';
+import ProjectCard from '@components/ProjectCard';
+
+import './HomeContainer.scss';
 
 interface StateProps {
   projects: Project[];
@@ -22,9 +24,15 @@ class HomeContainer extends React.Component<HomeProps> {
   }
 
   render() {
+    const projectList = this.props.projects.map(project => (
+      <ProjectCard key={project.id} className="Home__ProjectCard" project={project} />
+    ));
+
     return (
       <div className="Home">
-        Home
+        <div className="Home__ProjectList">
+          {projectList}
+        </div>
       </div>
     );
   }
