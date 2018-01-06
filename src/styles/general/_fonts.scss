@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'Avenir';
   src: url('../assets/fonts/Avenir-Medium.eot');
-  src: local('Avenir'),
-    url('../assets/fonts/Avenir-Medium.eot?#iefix') format('embedded-opentype'),
+  src: url('../assets/fonts/Avenir-Medium.eot?#iefix') format('embedded-opentype'),
     url('../assets/fonts/Avenir-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -11,8 +10,7 @@
 @font-face {
   font-family: 'Gotham';
   src: url('../assets/fonts/Gotham-Bold.eot');
-  src: local('Gotham'),
-    url('../assets/fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+  src: url('../assets/fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
     url('../assets/fonts/Gotham-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
