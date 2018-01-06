@@ -1,23 +1,21 @@
 import { createSelector } from 'reselect';
 
 import { ProjectActions, ProjectTypeKeys } from '@actions/projectActions';
-import { AppState } from '@reducers/index';
-
 import Project from '@models/project';
 
-export type ProjectState = {
+export type State = {
   readonly byId: { [id: string]: Project };
   readonly allIds: number[];
   readonly selectedId: number | null;
 };
 
-const initialState: ProjectState = {
+const initialState: State = {
   byId: {},
   allIds: [],
   selectedId: null,
 };
 
-export default function projectReducer(state: ProjectState = initialState, action: ProjectActions): ProjectState {
+export function reducer(state: State = initialState, action: ProjectActions): State {
   switch (action.type) {
     case ProjectTypeKeys.LOAD_SUCCESS: {
       const projects = action.projects;
@@ -40,11 +38,9 @@ export default function projectReducer(state: ProjectState = initialState, actio
   }
 }
 
-const getProjectReducer = (state: AppState): ProjectState => state.projects;
-
-export const getAllIds = createSelector(getProjectReducer, (state: ProjectState) => state.allIds);
-export const getEntities = createSelector(getProjectReducer, (state: ProjectState) => state.byId);
-export const getSelectedId = createSelector(getProjectReducer, (state: ProjectState) => state.selectedId);
+export const getAllIds = (state: State) => state.allIds;
+export const getEntities = (state: State) => state.byId;
+export const getSelectedId = (state: State) => state.selectedId;
 
 export const getSelected = createSelector(getEntities, getSelectedId, (entities, selectedId) => {
   return selectedId ? entities[selectedId] : null;
