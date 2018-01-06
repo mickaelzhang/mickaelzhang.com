@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { projectReducer, ProjectState } from './projectReducer';
+import projectReducer, { ProjectState } from './projectReducer';
 
 interface StoreEnhancerState {}
 
