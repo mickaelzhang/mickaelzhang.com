@@ -28,7 +28,7 @@ export function reducer(state: State = initialState, action: ProjectActions): St
       );
 
       return {...state,
-        allIds: [...state.allIds, ...projectIds],
+        allIds: projectIds,
         byId: { ...state.byId, ...newEntities}
       };
     }
