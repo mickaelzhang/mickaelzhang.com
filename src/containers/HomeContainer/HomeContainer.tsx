@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Project from '@models/project';
 import { AppState, projects } from '@reducers/index';
-import { fetchProjectList } from '@actions/projectActions';
 import ProjectCard from '@components/ProjectCard';
 
 import './HomeContainer.scss';
@@ -13,7 +12,6 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  fetchProjectList: () => void;
 }
 
 type HomeProps = StateProps & DispatchProps;
@@ -39,7 +37,6 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
-  fetchProjectList
 };
 
 export default connect<StateProps, DispatchProps, any>(mapStateToProps, mapDispatchToProps)(HomeContainer);

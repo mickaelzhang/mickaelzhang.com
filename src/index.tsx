@@ -18,13 +18,13 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App>
         <Switch>
-          <Route exact path="/" component={HomeContainer} />
-          <Route path="/about" component={AboutContainer} />
-          <Route path="/projects/:slug" component={ProjectDetailContainer} />
+          <App>
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/about" component={AboutContainer} />
+            <Route path="/projects/:slug" component={ProjectDetailContainer} />
+          </App>
         </Switch>
-      </App>
     </Router>
   </Provider>,
   document.getElementById('root') as HTMLElement

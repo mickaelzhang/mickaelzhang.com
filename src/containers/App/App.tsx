@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { AppState } from '@reducers/index';
+import { AppState, layouts } from '@reducers/index';
 import { fetchProjectList } from '@actions/projectActions';
 import NavBar from '@components/NavBar';
 
 import './App.scss';
 
 interface StateProps {
+  dataIsLoaded: boolean;
 }
 
 interface DispatchProps {
@@ -34,6 +35,7 @@ class App extends React.Component<AppProps> {
 }
 
 const mapStateToProps = (state: AppState) => ({
+  dataIsLoaded: layouts.getDataIsLoaded(state),
 });
 
 const mapDispatchToProps = {

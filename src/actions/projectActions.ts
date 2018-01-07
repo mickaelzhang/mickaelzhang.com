@@ -28,14 +28,14 @@ export interface LoadProjectListFailAction extends Action {
 
 export interface SelectProjectAction extends Action {
   type: ProjectActionTypes.SELECT_PROJECT;
-  id: number;
+  slug: string;
 }
 
 export interface UnselectProjectAction extends Action {
   type: ProjectActionTypes.UNSELECT_PROJECT;
 }
 
-const loadProjectListRequestAction  = () => (
+const loadProjectListRequestAction = () => (
   { type: ProjectActionTypes.LOAD_REQUEST }
 );
 
@@ -48,25 +48,14 @@ const loadProjectListSuccessAction = (projects: Project[]) => ({
   projects: projects
 });
 
-export const selectProjectAction = (id: number) => ({
+export const selectProjectAction = (slug: string) => ({
   type: ProjectActionTypes.SELECT_PROJECT,
-  id: id
+  slug: slug
 });
 
 export const unselectProjectAction = () => ({
   type: ProjectActionTypes.UNSELECT_PROJECT
 });
-
-export const fetchBySlugAndSelectProject = (slug: string) => {
-  return (dispatch: Dispatch<AppState>) => {
-    ProjectService.getRessourceBySlug(slug).then((response: AxiosResponse) => {
-      if (response.status === 200) {
-        dispatch(selectProjectAction(response.data.id as number));
-        dispatch(loadProjectListSuccessAction([response.data] as Project[]));
-      }
-    });
-  };
-};
 
 export const fetchProjectList = () => {
   return (dispatch: Dispatch<AppState>) => {
