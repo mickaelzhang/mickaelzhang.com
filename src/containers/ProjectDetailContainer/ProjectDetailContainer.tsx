@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { fetchBySlugAndSelectProject, unselectProjectAction } from '@actions/projectActions';
+import { fetchBySlugAndSelectProject, unselectProjectAction, selectProjectAction } from '@actions/projectActions';
 import { AppState, projects } from '@reducers/index';
 import Project from '@models/project';
 
@@ -20,6 +20,7 @@ interface StateProps {
 
 interface DispatchProps  {
   fetchBySlugAndSelectProject: (slug: string) => void;
+  selectProjectAction: (id: number) => void;
   unselectProjectAction: () => void;
 }
 
@@ -60,9 +61,17 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
         />
         <NextProjectLink
           project={nextProject}
+          onClick={this.changeProject}
         />
       </div>
     );
+  }
+
+  changeProject() {
+    const { nextProject } = this.props;
+    if (nextProject) {
+      this.props.selectProjectAction(nextProject.id);
+    }
   }
 }
 
@@ -73,7 +82,8 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = {
   fetchBySlugAndSelectProject,
-  unselectProjectAction
+  selectProjectAction,
+  unselectProjectAction,
 };
 
 export default connect<StateProps, DispatchProps, any>(mapStateToProps, mapDispatchToProps)(ProjectDetailContainer);

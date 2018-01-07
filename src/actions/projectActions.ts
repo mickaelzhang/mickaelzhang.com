@@ -48,7 +48,7 @@ const loadProjectListSuccessAction = (projects: Project[]) => ({
   projects: projects
 });
 
-const selectProjectAction = (id: number) => ({
+export const selectProjectAction = (id: number) => ({
   type: ProjectActionTypes.SELECT_PROJECT,
   id: id
 });
