@@ -1,0 +1,12 @@
+@import '~styles/utils';
+
+.ProjectOverview {
+  display: block;
+  width: 80%;
+  max-width: 540px;
+  margin: 0 auto 30px;
+
+  font-family: $font-family-text;
+  font-size: 16px;
+  line-height: 1.8;
+}

@@ -8,6 +8,7 @@ import Project from '@models/project';
 
 import ProjectTitle from './components/ProjectTitle';
 import ProjectImage from './components/ProjectImage';
+import ProjectOverview from './components/ProjectOverview';
 
 import './ProjectDetailContainer.scss';
 
@@ -49,6 +50,9 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
         <ProjectImage
           className="ProjectDetail__HeroImage"
           src={project.heroImage.original}
+        />
+        <ProjectOverview
+          text={project.description}
         />
       </div>
     );
