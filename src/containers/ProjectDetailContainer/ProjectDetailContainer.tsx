@@ -7,6 +7,7 @@ import { AppState, projects } from '@reducers/index';
 import Project from '@models/project';
 
 import ProjectTitle from './components/ProjectTitle';
+import ProjectImage from './components/ProjectImage';
 
 import './ProjectDetailContainer.scss';
 
@@ -44,6 +45,10 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
           className="ProjectDetail__Title"
           title={project.name}
           type={project.type}
+        />
+        <ProjectImage
+          className="ProjectDetail__HeroImage"
+          src={project.heroImage.original}
         />
       </div>
     );
