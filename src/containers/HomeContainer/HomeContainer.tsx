@@ -19,10 +19,6 @@ interface DispatchProps {
 type HomeProps = StateProps & DispatchProps;
 
 class HomeContainer extends React.Component<HomeProps> {
-  componentDidMount() {
-    this.props.fetchProjectList();
-  }
-
   render() {
     const projectList = this.props.projects.map(project => (
       <ProjectCard key={project.id} className="Home__ProjectCard" project={project} />

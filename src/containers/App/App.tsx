@@ -1,10 +1,26 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
+import { AppState } from '@reducers/index';
+import { fetchProjectList } from '@actions/projectActions';
 import NavBar from '@components/NavBar';
 
 import './App.scss';
 
-class App extends React.Component {
+interface StateProps {
+}
+
+interface DispatchProps {
+  fetchProjectList: () => void;
+}
+
+type AppProps = StateProps & DispatchProps;
+
+class App extends React.Component<AppProps> {
+  componentDidMount() {
+    this.props.fetchProjectList();
+  }
+
   render() {
     return (
       <div className="App">
@@ -17,4 +33,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state: AppState) => ({
+});
+
+const mapDispatchToProps = {
+  fetchProjectList
+};
+
+export default connect<StateProps, DispatchProps, any>(mapStateToProps, mapDispatchToProps)(App);
