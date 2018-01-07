@@ -5,19 +5,25 @@ export default interface Project {
   type: string;
   stack: string;
   description: string;
+  links: ProjectLink[];
   heroImage: Image;
   thumbnail: Image;
   content: ImageBlock[];
 }
 
-interface Image {
+export interface Image {
   small: string;
   medium: string;
   large?: string;
   original: string;
 }
 
-interface ImageBlock {
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface ImageBlock {
   type: string;
   image: Image;
 }
