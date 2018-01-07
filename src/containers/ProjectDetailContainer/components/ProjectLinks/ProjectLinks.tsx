@@ -14,7 +14,14 @@ const ProjectLinks: React.SFC<ProjectLinksProps> = ({ className, links }) => {
   const projectLinksClasses = classNames('ProjectLinks', className);
 
   const linkList = links.map((link, index) => (
-    <a key={index} className="ProjectLinks__Link" href={link.url} target='_blank' rel='noopener noreferrer'>{link.label}</a>
+    <a
+      key={index}
+      className="ProjectLinks__Link"
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >{link.label}
+    </a>
   ));
 
   return (

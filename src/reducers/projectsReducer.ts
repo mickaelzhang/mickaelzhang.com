@@ -59,6 +59,20 @@ export const getSelectedId = (state: State) => state.selectedId;
 export const getSelected = createSelector(getEntities, getSelectedId, (entities, selectedId) => {
   return selectedId ? entities[selectedId] : null;
 });
+export const getNextProjectId = createSelector(getAllIds, getSelectedId, (ids, selectedId) => {
+  if (!selectedId) {
+    return null;
+  }
+
+  const selectedIndex = ids.indexOf(selectedId);
+  const nextIndex = selectedIndex + 1 < ids.length ? selectedIndex + 1 : 0;
+
+  return ids[nextIndex];
+});
+
+export const getNextProject = createSelector(getEntities, getNextProjectId, (entities, nextProjectId) => {
+  return nextProjectId ? entities[nextProjectId] : null;
+});
 
 export const getAll = createSelector(getEntities, getAllIds, (entities, ids) => {
   return ids.map(id => entities[id]);

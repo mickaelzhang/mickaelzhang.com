@@ -29,6 +29,7 @@ export const projects = {
   getEntities: createSelector(getProjectState, fromProjects.getEntities),
   getSelectedId: createSelector(getProjectState, fromProjects.getSelectedId),
   getSelected: createSelector(getProjectState, fromProjects.getSelected),
+  getNextProject: createSelector(getProjectState, fromProjects.getNextProject),
   getAll: createSelector(getProjectState, fromProjects.getAll),
 };
 

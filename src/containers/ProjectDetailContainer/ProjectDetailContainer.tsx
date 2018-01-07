@@ -14,6 +14,7 @@ import './ProjectDetailContainer.scss';
 
 interface StateProps {
   project: Project | null;
+  nextProject: Project | null;
 }
 
 interface DispatchProps  {
@@ -52,6 +53,7 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
           src={project.heroImage.original}
         />
         <ProjectOverview
+          className="ProjectDetail__Overview"
           text={project.description}
           links={project.links}
         />
@@ -61,7 +63,8 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  project: projects.getSelected(state)
+  project: projects.getSelected(state),
+  nextProject: projects.getNextProject(state),
 });
 
 const mapDispatchToProps = {
