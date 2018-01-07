@@ -1,0 +1,21 @@
+@import '~styles/utils';
+
+.ProjectTitle {
+  display: block;
+  width: 100%;
+
+  &__Name {
+    margin: 0;
+    font-size: 64px;
+    font-family: $font-family-title;
+    text-align: center;
+  }
+
+  &__Type {
+    display: block;
+    font-family: $font-family-text;
+    font-size: 14px;
+    text-align: center;
+    text-transform: lowercase;
+  }
+}

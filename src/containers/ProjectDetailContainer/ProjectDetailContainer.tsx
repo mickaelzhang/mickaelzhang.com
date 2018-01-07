@@ -6,6 +6,10 @@ import { fetchBySlugAndSelectProject, unselectProjectAction } from '@actions/pro
 import { AppState, projects } from '@reducers/index';
 import Project from '@models/project';
 
+import ProjectTitle from './components/ProjectTitle';
+
+import './ProjectDetailContainer.scss';
+
 interface StateProps {
   project: Project | null;
 }
@@ -28,9 +32,19 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
   }
 
   render() {
+    const { project } = this.props;
+
+    if (!project) {
+      return null;
+    }
+
     return (
       <div className="ProjectDetail">
-
+        <ProjectTitle
+          className="ProjectDetail__Title"
+          title={project.name}
+          type={project.type}
+        />
       </div>
     );
   }
