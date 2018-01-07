@@ -1,6 +1,5 @@
 export default interface Project {
-  id: number;
-  slug: string;
+  id: string;
   name: string;
   type: string;
   stack: string;

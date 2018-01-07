@@ -5,7 +5,7 @@ import { ProjectActions, ProjectActionTypes } from '@actions/projectActions';
 import Project from '@models/project';
 
 export type State = {
-  readonly byId: { [slug: string]: Project };
+  readonly byId: { [id: string]: Project };
   readonly allIds: string[];
   readonly selectedId: string | null;
 };
@@ -21,11 +21,11 @@ export function reducer(state: State = initialState, action: ProjectActions): St
     case ProjectActionTypes.LOAD_SUCCESS: {
       const projects = action.projects;
 
-      const entityById = projects.reduce((entities: { [slug: string]: Project }, project: Project) => ({...entities, ...{
-          [project.slug]: project
+      const entityById = projects.reduce((entities: { [id: string]: Project }, project: Project) => ({...entities, ...{
+          [project.id]: project
         }}
       ), state.byId);
-      const newIds = projects.map(project => project.slug);
+      const newIds = projects.map(project => project.id);
 
       return {...state,
         allIds: _.union(state.allIds, newIds),
@@ -34,7 +34,7 @@ export function reducer(state: State = initialState, action: ProjectActions): St
     }
 
     case ProjectActionTypes.SELECT_PROJECT: {
-      const selectedId = action.slug;
+      const selectedId = action.id;
 
       return {...state,
         selectedId: selectedId

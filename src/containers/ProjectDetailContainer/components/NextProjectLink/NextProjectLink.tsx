@@ -18,7 +18,7 @@ const NextProjectLink: React.SFC<NextProjectLinkProps> = ({ className, project, 
   return (
     <Link
       className={nextProjectLinkClasses}
-      to={`/projects/${project.slug}`}
+      to={`/projects/${project.id}`}
       onClick={() => onClick()}
     >
       <div className="NextProjectLink__Text">

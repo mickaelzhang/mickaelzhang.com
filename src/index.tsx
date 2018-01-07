@@ -22,7 +22,7 @@ ReactDOM.render(
           <App>
             <Route exact path="/" component={HomeContainer} />
             <Route path="/about" component={AboutContainer} />
-            <Route path="/projects/:slug" component={ProjectDetailContainer} />
+            <Route path="/projects/:id" component={ProjectDetailContainer} />
           </App>
         </Switch>
     </Router>

@@ -16,7 +16,7 @@ const ProjectCard: React.SFC<LinkProps> = ({ project, className }) => {
   const projectCardClasses = classNames('ProjectCard', className);
 
   return (
-    <Link to={`/projects/${project.slug}`} className={projectCardClasses}>
+    <Link to={`/projects/${project.id}`} className={projectCardClasses}>
       <img className="ProjectCard__Thumbnail" src={project.thumbnail.medium} alt=""/>
       <div className="ProjectCard__Info">
         <h3 className="ProjectCard__Name">{project.name}</h3>

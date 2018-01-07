@@ -28,7 +28,7 @@ export interface LoadProjectListFailAction extends Action {
 
 export interface SelectProjectAction extends Action {
   type: ProjectActionTypes.SELECT_PROJECT;
-  slug: string;
+  id: string;
 }
 
 export interface UnselectProjectAction extends Action {
@@ -48,9 +48,9 @@ const loadProjectListSuccessAction = (projects: Project[]) => ({
   projects: projects
 });
 
-export const selectProjectAction = (slug: string) => ({
+export const selectProjectAction = (id: string) => ({
   type: ProjectActionTypes.SELECT_PROJECT,
-  slug: slug
+  id: id
 });
 
 export const unselectProjectAction = () => ({

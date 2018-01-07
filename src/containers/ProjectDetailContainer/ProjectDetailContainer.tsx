@@ -27,8 +27,8 @@ type ProjectDetailProps = StateProps & DispatchProps & RouteComponentProps<any>;
 
 class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
   componentDidMount() {
-    const slug = this.props.match.params.slug;
-    this.props.selectProjectAction(slug);
+    const id = this.props.match.params.id;
+    this.props.selectProjectAction(id);
   }
 
   componentWillUnmount() {
@@ -60,7 +60,7 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
         />
         <NextProjectLink
           project={nextProject}
-          onClick={() => this.props.selectProjectAction(nextProject.slug)}
+          onClick={() => this.props.selectProjectAction(nextProject.id)}
         />
       </div>
     );
