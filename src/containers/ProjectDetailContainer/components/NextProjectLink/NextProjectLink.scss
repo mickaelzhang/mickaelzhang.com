@@ -1,0 +1,33 @@
+@import '~styles/utils';
+
+.NextProjectLink {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding-top: 25%;
+  background-color: $grey-cod-gray;
+
+  &__Text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 0 8%;
+  }
+
+  &__Label {
+    font-size: 14px;
+    font-family: $font-family-text;
+    text-transform: lowercase;
+    text-align: center;
+    color: $color-font-primary;
+  }
+
+  &__Name {
+    font-size: 32px;
+    font-family: $font-family-title;
+    text-align: center;
+    color: $color-font-primary;
+  }
+}
