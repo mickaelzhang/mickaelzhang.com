@@ -1,0 +1,14 @@
+@import '~styles/utils';
+
+.ProjectLinks {
+  display: flex;
+  justify-content: flex-end;
+
+  &__Link {
+    text-decoration: none;
+    text-transform: lowercase;
+    color: $color-font-primary;
+    margin-left: 40px;
+    font-size: 12px;
+  }
+}

@@ -4,9 +4,12 @@
   display: block;
   width: 80%;
   max-width: 540px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
 
-  font-family: $font-family-text;
-  font-size: 16px;
-  line-height: 1.8;
+  &__Description {
+    font-family: $font-family-text;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
 }

@@ -53,6 +53,7 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
         />
         <ProjectOverview
           text={project.description}
+          links={project.links}
         />
       </div>
     );
