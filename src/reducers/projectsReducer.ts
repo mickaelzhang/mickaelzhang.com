@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import { createSelector } from 'reselect';
 
 import { ProjectActions, ProjectActionTypes } from '@actions/projectActions';
@@ -27,7 +28,7 @@ export function reducer(state: State = initialState, action: ProjectActions): St
       const newIds = projects.map(project => project.id);
 
       return {...state,
-        allIds: [ ...state.allIds, ...newIds ],
+        allIds: _.union(state.allIds, newIds),
         byId: entityById
       };
     }
