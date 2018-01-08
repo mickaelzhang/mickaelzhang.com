@@ -9,6 +9,7 @@ import Project from '@models/project';
 import ProjectTitle from './components/ProjectTitle';
 import ProjectImage from './components/ProjectImage';
 import ProjectOverview from './components/ProjectOverview';
+import ModularContent from '@components/ModularContent';
 import NextProjectLink from './components/NextProjectLink';
 
 import './ProjectDetailContainer.scss';
@@ -66,6 +67,10 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
           className="ProjectDetail__Overview"
           text={project.description}
           links={project.links}
+        />
+        <ModularContent
+          className="ProjectDetail__Content"
+          content={project.content}
         />
         <NextProjectLink
           project={nextProject}

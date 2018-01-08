@@ -4,7 +4,7 @@ import * as classNames from 'classnames';
 import './ProjectImage.scss';
 
 interface ProjectImageProps {
-  className: string;
+  className?: string;
   src: string;
 }
 

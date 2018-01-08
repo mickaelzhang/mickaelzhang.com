@@ -1,0 +1,10 @@
+.ImageContent {
+  display: block;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &--FullWidth {
+    width: 100%;
+  }
+}

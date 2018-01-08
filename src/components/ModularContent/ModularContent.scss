@@ -1,0 +1,10 @@
+@import '~styles/utils';
+
+.ModularContent {
+  display: flex;
+  flex-direction: column;
+
+  &__Block {
+    margin-bottom: 120px;
+  }
+}
