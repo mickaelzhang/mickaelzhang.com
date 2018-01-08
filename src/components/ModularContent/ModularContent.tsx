@@ -21,7 +21,7 @@ const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) 
           <ImageContent
             key={index}
             className="ModularContent__Block ModularContent__ImageRegular"
-            src={block.image.original}
+            src={block.image}
           />
         );
       case 'image_full-width':
@@ -29,7 +29,7 @@ const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) 
           <ImageContent
             key={index}
             className="ModularContent__Block ModularContent__ImageFullWidth"
-            src={block.image.original}
+            src={block.image}
             type="full-width"
           />
         );

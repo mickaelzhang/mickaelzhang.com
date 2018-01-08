@@ -2,10 +2,10 @@ import * as _ from 'lodash';
 import { createSelector } from 'reselect';
 
 import { ProjectActions, ProjectActionTypes } from '@actions/projectActions';
-import Project from '@models/project';
+import IProject from '@models/project';
 
 export type State = {
-  readonly byId: { [id: string]: Project };
+  readonly byId: { [id: string]: IProject };
   readonly allIds: string[];
   readonly selectedId: string | null;
 };
@@ -21,7 +21,8 @@ export function reducer(state: State = initialState, action: ProjectActions): St
     case ProjectActionTypes.LOAD_SUCCESS: {
       const projects = action.projects;
 
-      const entityById = projects.reduce((entities: { [id: string]: Project }, project: Project) => ({...entities, ...{
+      const entityById = projects.reduce((entities: { [id: string]: IProject }, project: IProject) => (
+        {...entities, ...{
           [project.id]: project
         }}
       ), state.byId);

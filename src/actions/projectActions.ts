@@ -2,7 +2,7 @@ import { Action, Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
 import { AppState } from '@reducers/index';
-import Project from '@models/project';
+import IProject from '@models/project';
 import ProjectService from '@services/projectService';
 
 export enum ProjectActionTypes {
@@ -19,7 +19,7 @@ export interface LoadProjectListRequestAction extends Action {
 
 export interface LoadProjectListSuccessAction extends Action {
   type: ProjectActionTypes.LOAD_SUCCESS;
-  projects: Project[];
+  projects: IProject[];
 }
 
 export interface LoadProjectListFailAction extends Action {
@@ -43,7 +43,7 @@ const loadProjectListFailAction = () => (
   { type: ProjectActionTypes.LOAD_FAIL }
 );
 
-const loadProjectListSuccessAction = (projects: Project[]) => ({
+const loadProjectListSuccessAction = (projects: IProject[]) => ({
   type: ProjectActionTypes.LOAD_SUCCESS,
   projects: projects
 });
@@ -63,7 +63,7 @@ export const fetchProjectList = () => {
 
     ProjectService.getRessources().then((response: AxiosResponse) => {
       if (response.status === 200) {
-        dispatch(loadProjectListSuccessAction(response.data as Project[]));
+        dispatch(loadProjectListSuccessAction(response.data as IProject[]));
       } else {
         dispatch(loadProjectListFailAction());
       }

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import Project from '@models/project';
+import IProject from '@models/project';
 import { AppState, projects } from '@reducers/index';
 import ProjectCard from '@components/ProjectCard';
 
 import './HomeContainer.scss';
 
 interface StateProps {
-  projects: Project[];
+  projects: IProject[];
 }
 
 interface DispatchProps {

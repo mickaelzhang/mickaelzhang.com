@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import * as classNames from 'classnames';
 
-import Project from '@models/project';
+import IProject from '@models/project';
 
 import './NextProjectLink.scss';
 
 interface NextProjectLinkProps {
   className?: string;
-  project: Project;
+  project: IProject;
   onClick: () => void;
 }
 

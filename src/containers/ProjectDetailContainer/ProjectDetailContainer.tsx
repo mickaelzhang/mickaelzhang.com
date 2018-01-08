@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { unselectProjectAction, selectProjectAction } from '@actions/projectActions';
 import { AppState, projects } from '@reducers/index';
-import Project from '@models/project';
+import IProject from '@models/project';
 
 import ProjectTitle from './components/ProjectTitle';
 import ProjectImage from './components/ProjectImage';
@@ -15,8 +15,8 @@ import NextProjectLink from './components/NextProjectLink';
 import './ProjectDetailContainer.scss';
 
 interface StateProps {
-  project: Project | null;
-  nextProject: Project | null;
+  project: IProject | null;
+  nextProject: IProject | null;
 }
 
 interface DispatchProps  {

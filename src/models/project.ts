@@ -1,20 +1,23 @@
-export default interface Project {
+export default interface IProject {
   id: string;
   name: string;
   type: string;
   stack: string;
   description: string;
   links: ProjectLink[];
-  heroImage: Image;
-  thumbnail: Image;
+  heroImage: IImage;
+  thumbnail: IImage;
   content: ImageBlock[];
 }
 
-export interface Image {
-  small: string;
-  medium: string;
-  large?: string;
+export interface IImage {
   original: string;
+  srcSet: IImageSrcObject[];
+}
+
+export interface IImageSrcObject {
+  src: string;
+  breakpoint: number;
 }
 
 export interface ProjectLink {
@@ -24,5 +27,5 @@ export interface ProjectLink {
 
 export interface ImageBlock {
   type: string;
-  image: Image;
+  image: IImage;
 }
