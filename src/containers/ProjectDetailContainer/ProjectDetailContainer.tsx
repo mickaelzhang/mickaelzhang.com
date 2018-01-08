@@ -7,7 +7,7 @@ import { AppState, projects } from '@reducers/index';
 import IProject from '@models/project';
 
 import ProjectTitle from './components/ProjectTitle';
-import ProjectImage from './components/ProjectImage';
+import HeroImage from './components/HeroImage';
 import ProjectOverview from './components/ProjectOverview';
 import ModularContent from '@components/ModularContent';
 import NextProjectLink from './components/NextProjectLink';
@@ -52,25 +52,29 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
       return null;
     }
 
+    const modularContent = project.content ? (
+      <ModularContent
+        className="ProjectDetail__Content"
+        content={project.content}
+      />
+    ) : null;
+
     return (
       <div className="ProjectDetail">
         <ProjectTitle
           className="ProjectDetail__Title"
           title={project.name}
         />
-        <ProjectImage
+        <HeroImage
           className="ProjectDetail__HeroImage"
-          src={project.heroImage.original}
+          src={project.heroImage}
         />
         <ProjectOverview
           className="ProjectDetail__Overview"
           text={project.description}
           links={project.links}
         />
-        <ModularContent
-          className="ProjectDetail__Content"
-          content={project.content}
-        />
+        {modularContent}
         <NextProjectLink
           project={nextProject}
           onClick={() => this.props.selectProjectAction(nextProject.id)}

@@ -7,7 +7,7 @@ export default interface IProject {
   links: IProjectLink[];
   heroImage: IImage;
   thumbnail: IImage;
-  content: IImageBlock[];
+  content: IImageBlock[] | null;
 }
 
 export interface IImage {
