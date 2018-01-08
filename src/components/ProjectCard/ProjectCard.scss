@@ -6,6 +6,11 @@
   max-width: 400px;
   width: 100%;
   text-decoration: none;
+  transition: opacity 0.35s ease-out;
+
+  &--Inactive {
+    opacity: 0.25;
+  }
 
   &__Thumbnail {
     width: 100%;

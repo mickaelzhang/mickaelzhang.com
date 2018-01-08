@@ -17,9 +17,22 @@ interface DispatchProps {
 type HomeProps = StateProps & DispatchProps;
 
 class HomeContainer extends React.Component<HomeProps> {
+  state = {
+    hoveredProjectId: null
+  };
+
   render() {
+    const { hoveredProjectId } = this.state;
+
     const projectList = this.props.projects.map(project => (
-      <ProjectCard key={project.id} className="Home__ProjectCard" project={project} />
+      <ProjectCard
+        key={project.id}
+        className="Home__ProjectCard"
+        project={project}
+        onMouseEnter={() => this.onProjectMouseEnter(project.id)}
+        onMouseLeave={() => this.onProjectMouseLeave()}
+        isActive={hoveredProjectId ? hoveredProjectId === project.id : true}
+      />
     ));
 
     return (
@@ -29,6 +42,14 @@ class HomeContainer extends React.Component<HomeProps> {
         </div>
       </div>
     );
+  }
+
+  onProjectMouseEnter(id: string): void {
+    this.setState({ hoveredProjectId: id });
+  }
+
+  onProjectMouseLeave(): void {
+    this.setState({ hoveredProjectId: null });
   }
 }
 
