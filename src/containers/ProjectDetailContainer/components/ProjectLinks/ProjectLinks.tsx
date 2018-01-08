@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import { ProjectLink } from '@models/project';
+import { IProjectLink } from '@models/project';
 
 import './ProjectLinks.scss';
 
 interface ProjectLinksProps {
   className?: string;
-  links: ProjectLink[];
+  links: IProjectLink[];
 }
 
 const ProjectLinks: React.SFC<ProjectLinksProps> = ({ className, links }) => {

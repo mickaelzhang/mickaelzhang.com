@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import { ProjectLink } from '@models/project';
+import { IProjectLink } from '@models/project';
 
 import ProjectLinks from '../ProjectLinks';
 
@@ -10,7 +10,7 @@ import './ProjectOverview.scss';
 interface ProjectOverviewProps {
   className?: string;
   text: string;
-  links: ProjectLink[];
+  links: IProjectLink[];
 }
 
 const ProjectOverview: React.SFC<ProjectOverviewProps> = ({ className, text, links }) => {

@@ -4,28 +4,28 @@ export default interface IProject {
   type: string;
   stack: string;
   description: string;
-  links: ProjectLink[];
+  links: IProjectLink[];
   heroImage: IImage;
   thumbnail: IImage;
-  content: ImageBlock[];
+  content: IImageBlock[];
 }
 
 export interface IImage {
   original: string;
-  srcSet: IImageSrcObject[];
+  srcSet: IImageSrcSet[];
 }
 
-export interface IImageSrcObject {
+export interface IImageSrcSet {
   src: string;
   breakpoint: number;
 }
 
-export interface ProjectLink {
+export interface IProjectLink {
   label: string;
   url: string;
 }
 
-export interface ImageBlock {
+export interface IImageBlock {
   type: string;
   image: IImage;
 }

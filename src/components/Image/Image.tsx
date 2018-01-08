@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import { IImage, IImageSrcObject } from '@models/project';
+import { IImage, IImageSrcSet } from '@models/project';
 import './Image.scss';
 
 interface ImageProps {
@@ -18,7 +18,7 @@ const Image: React.SFC<ImageProps> = ({ className, src }) => {
 };
 
 function getSrcSet(src: IImage): string {
-  const srcSetValue = src.srcSet.reduce((previousValue: string, imageSrc: IImageSrcObject) => {
+  const srcSetValue = src.srcSet.reduce((previousValue: string, imageSrc: IImageSrcSet) => {
     const newSrcSet = `${imageSrc.src} ${imageSrc.breakpoint}w`;
 
     if (previousValue === '') {
