@@ -57,7 +57,6 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
         <ProjectTitle
           className="ProjectDetail__Title"
           title={project.name}
-          type={project.type}
         />
         <ProjectImage
           className="ProjectDetail__HeroImage"
