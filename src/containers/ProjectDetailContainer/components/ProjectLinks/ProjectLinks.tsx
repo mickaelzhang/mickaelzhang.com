@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 import { IProjectLink } from '@models/project';
-import AppLink from '@components/AppLink';
+import Link from '@components/Link';
 
 import './ProjectLinks.scss';
 
@@ -15,7 +15,7 @@ const ProjectLinks: React.SFC<ProjectLinksProps> = ({ className, links }) => {
   const projectLinksClasses = classNames('ProjectLinks', className);
 
   const linkList = links.map((link, index) => (
-    <AppLink key={index} className="ProjectLinks__Link" to={link.url}>{link.label}</AppLink>
+    <Link key={index} className="ProjectLinks__Link" to={link.url}>{link.label}</Link>
   ));
 
   return (
