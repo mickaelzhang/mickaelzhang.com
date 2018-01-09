@@ -4,7 +4,6 @@ import * as classNames from 'classnames';
 import { IImage } from '@models/project';
 import Image from '@components/Image';
 
-
 import './HeroImage.scss';
 
 interface HeroImageProps {

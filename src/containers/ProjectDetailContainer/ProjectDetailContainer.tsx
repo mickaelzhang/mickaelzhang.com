@@ -40,7 +40,6 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
     const projectHasChanged = this.props.project !== nextProps.project;
 
     if (nextProps.project && projectHasChanged) {
-      this.props.selectProjectAction(nextProps.project.id);
       window.scrollTo(0, 0);
     }
   }
