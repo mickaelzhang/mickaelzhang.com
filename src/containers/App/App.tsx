@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { AppState, layouts } from '@reducers/index';
 import { fetchProjectList } from '@actions/projectActions';
 import NavBar from '@components/NavBar';
+import PageTransitionLayer from '@components/PageTransitionLayer';
 
 import './App.scss';
 
@@ -29,6 +30,7 @@ class App extends React.Component<AppProps> {
         <div>
           {this.props.children}
         </div>
+        <PageTransitionLayer isActive={false} />
       </div>
     );
   }
