@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
 
-import * as fromProjects from './projectsReducer';
-import * as fromLayouts from './layoutsReducer';
+import * as fromProjects from './projects';
+import * as fromLayouts from './layouts';
 
 interface StoreEnhancerState {}
 

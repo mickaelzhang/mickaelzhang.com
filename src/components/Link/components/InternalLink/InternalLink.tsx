@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import * as classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import { AppState } from '@reducers/index';
 
@@ -19,13 +19,33 @@ interface ComponentProps {
   to: string;
 }
 
-type InternalLinkAllProps = StateProps & DispatchProps & ComponentProps;
+type InternalLinkAllProps = StateProps & DispatchProps & ComponentProps & RouteComponentProps<any>;
 
-const InternalLink: React.SFC<InternalLinkAllProps> = ({ className, children, to }) => {
-  const internalLinkClasses = classNames('InternalLink', className);
+class InternalLink extends React.Component<InternalLinkAllProps> {
+  render() {
+    const { className, children } = this.props;
+    const internalLinkClasses = classNames('InternalLink', className);
 
-  return <Link to={to} className={internalLinkClasses}>{children}</Link>;
-};
+    return (
+      <span
+        className={internalLinkClasses}
+        onClick={this.handleClick}
+      >
+        {children}
+      </span>
+    );
+  }
+
+  handleClick = () => {
+    console.log('this is handleClick');
+  }
+}
+
+// const InternalLink: React.SFC<InternalLinkAllProps> = ({ className, children, to }) => {
+//   const internalLinkClasses = classNames('InternalLink', className);
+
+//   return <Link to={to} className={internalLinkClasses}>{children}</Link>;
+// };
 
 const mapStateToProps = (state: AppState) => ({
 });
@@ -33,4 +53,7 @@ const mapStateToProps = (state: AppState) => ({
 const mapDispatchToProps = {
 };
 
-export default connect<StateProps, DispatchProps, ComponentProps>(mapStateToProps, mapDispatchToProps)(InternalLink);
+export default withRouter<InternalLinkAllProps>(connect<StateProps, DispatchProps, ComponentProps> (
+  mapStateToProps,
+  mapDispatchToProps
+)(InternalLink));

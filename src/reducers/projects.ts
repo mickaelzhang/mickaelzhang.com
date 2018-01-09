@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import { createSelector } from 'reselect';
 
-import { ProjectActions, ProjectActionTypes } from '@actions/projectActions';
+import { ProjectActions, ProjectActionTypes } from '@actions/projects';
 import IProject from '@models/project';
 
 export type State = {

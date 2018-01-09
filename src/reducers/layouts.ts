@@ -1,4 +1,4 @@
-import { ProjectActions, ProjectActionTypes } from '@actions/projectActions';
+import { ProjectActions, ProjectActionTypes } from '@actions/projects';
 
 export type State = {
   readonly dataIsLoaded: boolean;

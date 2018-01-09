@@ -24,7 +24,7 @@ export default {
     // Original state
     tl.to(target, 0, {
       transformOrigin: 'right',
-      scaleX: 0,
+      scaleX: 1,
     });
 
     tl.to(target, 1, {

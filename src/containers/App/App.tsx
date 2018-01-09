@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { AppState, layouts } from '@reducers/index';
-import { fetchProjectList } from '@actions/projectActions';
+import { fetchProjectList } from '@actions/projects';
 import NavBar from '@components/NavBar';
 import PageTransitionLayer from '@components/PageTransitionLayer';
 
