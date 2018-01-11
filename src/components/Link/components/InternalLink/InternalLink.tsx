@@ -37,7 +37,6 @@ class InternalLink extends React.Component<InternalLinkProps> {
     clicked: false
   };
 
-
   componentWillReceiveProps(nextProps: InternalLinkProps) {
     const transitionPaused = this.props.pageTransitionStatus === PageTransitionStatus.START
       && nextProps.pageTransitionStatus === PageTransitionStatus.MIDDLE;
