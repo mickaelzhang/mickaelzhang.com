@@ -33,11 +33,25 @@ class PageTransitionLayer extends React.Component<PageTransitionLayerProps> {
     const { className } = this.props;
     const pageTransitionLayerClasses = classNames('PageTransitionLayer', className);
 
+    const isTransitioning = this.props.status === PageTransitionStatus.START
+      || this.props.status === PageTransitionStatus.MIDDLE
+      || this.props.status === PageTransitionStatus.END;
+
     return (
       <div
         className={pageTransitionLayerClasses}
-        ref={component => { this.component = component; }}
-      />
+      >
+        <div
+          className="PageTransitionLayer__Layer"
+          ref={component => { this.component = component; }}
+        />
+        {/* This background is used as a way to block any interaction during the transition animation */}
+        {isTransitioning ? (
+          <div
+            className="PageTransitionLayer__Background"
+          />
+        ) : null}
+      </div>
     );
   }
 }

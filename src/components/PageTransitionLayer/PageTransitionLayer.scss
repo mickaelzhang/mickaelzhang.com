@@ -6,8 +6,26 @@
   bottom: 0;
   left: 0;
   right: 0;
-  transform: scaleX(0);
-  transform-origin: left;
 
-  background-color: #2A2A2A;
+  pointer-events: none;
+
+  &__Layer, &__Background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: all;
+  }
+
+  &__Layer {
+    transform: scaleX(0);
+    transform-origin: left;
+
+    background-color: #2A2A2A;
+  }
+
+  &__Background {
+
+  }
 }
