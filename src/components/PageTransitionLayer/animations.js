@@ -16,9 +16,9 @@ export default {
     });
 
     // Transition
-    tl.to(target, 0.7, {
+    tl.to(target, 0.5, {
       scaleX: 1,
-      ease: Quart.easeOut,
+      ease: Quart.easeInOut,
       onComplete() {
         cb();
       }
@@ -39,9 +39,9 @@ export default {
     });
 
     // Transition
-    tl.to(target, 0.7, {
+    tl.to(target, 0.5, {
       scaleX: 0,
-      ease: Quart.easeOut,
+      ease: Quart.easeInOut,
       onComplete()  {
         cb();
       }
