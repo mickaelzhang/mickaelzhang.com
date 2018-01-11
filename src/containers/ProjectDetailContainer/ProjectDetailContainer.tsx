@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { unselectProjectAction, selectProjectAction } from '@actions/projectActions';
+import { unselectProjectAction, selectProjectAction } from '@actions/projects';
 import { AppState, projects } from '@reducers/index';
 import IProject from '@models/project';
 

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/classnames": "^2.2.3",
+    "@types/gsap": "^1.19.1",
     "@types/lodash": "^4.14.92",
     "@types/react-redux": "^5.0.14",
     "@types/react-router-dom": "^4.2.3",
@@ -17,6 +18,7 @@
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "0.11.2",
     "fs-extra": "3.0.1",
+    "gsap": "^1.20.3",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "lodash": "^4.17.4",

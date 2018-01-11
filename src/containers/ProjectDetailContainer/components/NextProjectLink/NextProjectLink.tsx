@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import * as classNames from 'classnames';
 
 import IProject from '@models/project';
+import Link from '@components/Link';
 
 import './NextProjectLink.scss';
 

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import * as classNames from 'classnames';
 
 import IProject from '@models/project';
 import Image from '@components/Image';
+import Link from '@components/Link';
 import Detail from './components/Detail';
 
 import './ProjectCard.scss';

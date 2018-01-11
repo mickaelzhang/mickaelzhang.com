@@ -160,7 +160,7 @@ module.exports = {
           },
           //Compile .tsx?
           {
-            test: /\.(ts|tsx)$/,
+            test: /\.(js|ts|tsx)$/,
             include: paths.appSrc,
             loader: require.resolve('ts-loader')
           },

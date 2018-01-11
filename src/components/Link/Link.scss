@@ -1,0 +1,13 @@
+@import '~styles/utils';
+
+.Link {
+  cursor: pointer;
+  display: flex;
+
+  &--Text {
+    font-size: 14px;
+    text-transform: lowercase;
+    color: $color-font-primary;
+    margin: 0 24px;
+  }
+}

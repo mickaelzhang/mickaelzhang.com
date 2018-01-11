@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 import { IImageBlock } from '@models/project';
-import ImageContent from '@components/ImageContent';
+import ImageBlock from '@components/ImageBlock';
 
 import './ModularContent.scss';
 
@@ -18,7 +18,7 @@ const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) 
     switch (block.type) {
       case 'image_normal':
         return (
-          <ImageContent
+          <ImageBlock
             key={index}
             className="ModularContent__Block ModularContent__ImageRegular"
             src={block.image}
@@ -26,7 +26,7 @@ const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) 
         );
       case 'image_full-width':
         return (
-          <ImageContent
+          <ImageBlock
             key={index}
             className="ModularContent__Block ModularContent__ImageFullWidth"
             src={block.image}
