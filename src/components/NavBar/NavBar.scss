@@ -7,4 +7,12 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
+
+  &__Menu {
+    display: flex;
+  }
+
+  &__Link {
+    margin: 0 0 0 40px;
+  }
 }

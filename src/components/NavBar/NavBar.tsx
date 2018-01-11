@@ -9,9 +9,9 @@ import './NavBar.scss';
 const NavBar = () => (
   <div className="NavBar">
     <Logo />
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
+    <div className="NavBar__Menu">
+      <Link className="NavBar__Link" to="/">Home</Link>
+      <Link className="NavBar__Link" to="/about">About</Link>
     </div>
   </div>
 );
