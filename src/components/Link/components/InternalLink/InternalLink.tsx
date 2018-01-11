@@ -10,6 +10,9 @@ import {
   finishPageTransitionAction,
 } from '@actions/layouts';
 
+// Get props from parent components
+import { LinkProps } from '../../Link';
+
 import './InternalLink.scss';
 
 interface StateProps {
@@ -21,15 +24,14 @@ interface DispatchProps {
   finishPageTransitionAction: () => void;
 }
 
-interface ComponentProps extends RouteComponentProps < {} > {
-  children: string | JSX.Element;
-  className?: string;
-  to: string;
-}
-
-type InternalLinkProps = StateProps & DispatchProps & ComponentProps;
+type InternalLinkProps = StateProps & DispatchProps & LinkProps & RouteComponentProps<{}>;
 
 class InternalLink extends React.Component<InternalLinkProps> {
+  static defaultProps = {
+    onMouseEnter: () => {},
+    onMouseLeave: () => {},
+  };
+
   state = {
     clicked: false
   };
@@ -46,17 +48,18 @@ class InternalLink extends React.Component<InternalLinkProps> {
   }
 
   render() {
-    const { className, children } = this.props;
+    const { className, children, onMouseEnter, onMouseLeave } = this.props;
     const internalLinkClasses = classNames('InternalLink', className);
-    console.log(this.props);
 
     return (
-      <span
+      <div
         className={internalLinkClasses}
         onClick={this.handleClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         {children}
-      </span>
+      </div>
     );
   }
 
@@ -65,12 +68,6 @@ class InternalLink extends React.Component<InternalLinkProps> {
     this.props.startPageTransitionAction();
   }
 }
-
-// const InternalLink: React.SFC<InternalLinkAllProps> = ({ className, children, to }) => {
-//   const internalLinkClasses = classNames('InternalLink', className);
-
-//   return <Link to={to} className={internalLinkClasses}>{children}</Link>;
-// };
 
 const mapStateToProps = (state: AppState) => ({
   pageTransitionStatus: layouts.getPageTransitionStatus(state),
@@ -81,7 +78,7 @@ const mapDispatchToProps = {
   finishPageTransitionAction,
 };
 
-const ConnectedInternalLink = connect<StateProps, DispatchProps, ComponentProps>(
+const ConnectedInternalLink = connect<StateProps, DispatchProps, LinkProps>(
   mapStateToProps,
   mapDispatchToProps
 )(InternalLink);

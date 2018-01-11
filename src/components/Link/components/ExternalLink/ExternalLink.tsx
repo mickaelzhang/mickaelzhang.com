@@ -1,15 +1,12 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
+// Get props from parent components
+import { LinkProps } from '../../Link';
+
 import './ExternalLink.scss';
 
-interface ExternalLinkProps {
-  children: string | JSX.Element;
-  className?: string;
-  to: string;
-}
-
-const ExternalLink: React.SFC<ExternalLinkProps> = ({ className, children, to }) => {
+const ExternalLink: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onMouseLeave }) => {
   const externalLinkClasses = classNames('ExternalLink', className);
 
   return (
@@ -18,6 +15,8 @@ const ExternalLink: React.SFC<ExternalLinkProps> = ({ className, children, to })
       href={to}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >{children}
     </a>
   );

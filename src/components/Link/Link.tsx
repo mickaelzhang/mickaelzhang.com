@@ -6,21 +6,43 @@ import InternalLink from './components/InternalLink';
 
 import './Link.scss';
 
-interface LinkProps {
-  children: string | JSX.Element;
+export interface LinkProps {
+  children: string | JSX.Element |  JSX.Element[];
   className?: string;
   to: string;
+  onMouseEnter?: (evt: React.MouseEvent<any>) => void;
+  onMouseLeave?: (evt: React.MouseEvent<any>) => void;
 }
 
-const Link: React.SFC<LinkProps> = ({ className, children, to }) => {
-  const linkClasses = classNames('Link', className);
+const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onMouseLeave }) => {
+  const linkClasses = classNames('Link', className, {
+    'Link--Text': typeof children === 'string'
+  });
+
   const isExternal = /^https?:\/\//.test(to);
 
   return isExternal ? (
-    <ExternalLink className={linkClasses} to={to}>{children}</ExternalLink>
+    <ExternalLink
+      className={linkClasses}
+      to={to}
+    >
+      {children}
+    </ExternalLink>
   ) : (
-    <InternalLink to={to} className="Link">{children}</InternalLink>
+    <InternalLink
+      className={linkClasses}
+      to={to}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </InternalLink>
   );
+};
+
+Link.defaultProps = {
+  onMouseEnter: (evt) => {},
+  onMouseLeave: (evt) => {},
 };
 
 export default Link;

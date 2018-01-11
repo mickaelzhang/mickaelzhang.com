@@ -1,9 +1,12 @@
 @import '~styles/utils';
 
 .Link {
-  text-decoration: none;
-  text-transform: lowercase;
-  color: $color-font-primary;
-  font-size: 14px;
-  margin: 0 24px;
+  cursor: pointer;
+
+  &--Text {
+    font-size: 14px;
+    text-transform: lowercase;
+    color: $color-font-primary;
+    margin: 0 24px;
+  }
 }
