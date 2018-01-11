@@ -5,56 +5,56 @@ import { AppState } from '@reducers/index';
 import IProject from '@models/project';
 import ProjectService from '@services/projectService';
 
-export enum ProjectActionTypes {
-  LOAD_REQUEST = 'Project | LOAD_REQUEST',
-  LOAD_SUCCESS = 'Project | LOAD_SUCCESS',
-  LOAD_FAIL = 'Project | LOAD_FAIL',
-  SELECT_PROJECT = 'Project | SELECT_PROJECT',
-  UNSELECT_PROJECT = 'Project | UNSELECT_PROJECT'
+export enum ActionTypes {
+  LOAD_REQUEST = 'Projects | LOAD_REQUEST',
+  LOAD_SUCCESS = 'Projects | LOAD_SUCCESS',
+  LOAD_FAIL = 'Projects | LOAD_FAIL',
+  SELECT_PROJECT = 'Projects | SELECT_PROJECT',
+  UNSELECT_PROJECT = 'Projects | UNSELECT_PROJECT'
 }
 
 export interface LoadProjectListRequestAction extends Action {
-  type: ProjectActionTypes.LOAD_REQUEST;
+  type: ActionTypes.LOAD_REQUEST;
 }
 
 export interface LoadProjectListSuccessAction extends Action {
-  type: ProjectActionTypes.LOAD_SUCCESS;
+  type: ActionTypes.LOAD_SUCCESS;
   projects: IProject[];
 }
 
 export interface LoadProjectListFailAction extends Action {
-  type: ProjectActionTypes.LOAD_FAIL;
+  type: ActionTypes.LOAD_FAIL;
 }
 
 export interface SelectProjectAction extends Action {
-  type: ProjectActionTypes.SELECT_PROJECT;
+  type: ActionTypes.SELECT_PROJECT;
   id: string;
 }
 
 export interface UnselectProjectAction extends Action {
-  type: ProjectActionTypes.UNSELECT_PROJECT;
+  type: ActionTypes.UNSELECT_PROJECT;
 }
 
 const loadProjectListRequestAction = () => (
-  { type: ProjectActionTypes.LOAD_REQUEST }
+  { type: ActionTypes.LOAD_REQUEST }
 );
 
 const loadProjectListFailAction = () => (
-  { type: ProjectActionTypes.LOAD_FAIL }
+  { type: ActionTypes.LOAD_FAIL }
 );
 
 const loadProjectListSuccessAction = (projects: IProject[]) => ({
-  type: ProjectActionTypes.LOAD_SUCCESS,
+  type: ActionTypes.LOAD_SUCCESS,
   projects: projects
 });
 
 export const selectProjectAction = (id: string) => ({
-  type: ProjectActionTypes.SELECT_PROJECT,
+  type: ActionTypes.SELECT_PROJECT,
   id: id
 });
 
 export const unselectProjectAction = () => ({
-  type: ProjectActionTypes.UNSELECT_PROJECT
+  type: ActionTypes.UNSELECT_PROJECT
 });
 
 export const fetchProjectList = () => {

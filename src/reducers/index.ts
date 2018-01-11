@@ -30,6 +30,7 @@ const getLayoutsState = (state: AppState) => state.layouts;
  */
 export const layouts = {
   getDataIsLoaded: createSelector(getLayoutsState, fromLayouts.getDataIsLoaded),
+  getPageTransitionStatus: createSelector(getLayoutsState, fromLayouts.getPageTransitionStatus),
 };
 
 /**

@@ -3,28 +3,52 @@ import { connect } from 'react-redux';
 import * as classNames from 'classnames';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-import { AppState } from '@reducers/index';
+import { AppState, layouts } from '@reducers/index';
+import {
+  PageTransitionStatus,
+  startPageTransitionAction,
+  finishPageTransitionAction,
+} from '@actions/layouts';
 
 import './InternalLink.scss';
 
 interface StateProps {
+  pageTransitionStatus: string;
 }
 
 interface DispatchProps {
+  startPageTransitionAction: () => void;
+  finishPageTransitionAction: () => void;
 }
 
-interface ComponentProps {
+interface ComponentProps extends RouteComponentProps < {} > {
   children: string | JSX.Element;
   className?: string;
   to: string;
 }
 
-type InternalLinkAllProps = StateProps & DispatchProps & ComponentProps & RouteComponentProps<any>;
+type InternalLinkProps = StateProps & DispatchProps & ComponentProps;
 
-class InternalLink extends React.Component<InternalLinkAllProps> {
+class InternalLink extends React.Component<InternalLinkProps> {
+  state = {
+    clicked: false
+  };
+
+  componentWillReceiveProps(nextProps: InternalLinkProps) {
+    const transitionPaused = this.props.pageTransitionStatus === PageTransitionStatus.START
+      && nextProps.pageTransitionStatus === PageTransitionStatus.MIDDLE;
+
+    if (this.state.clicked &&  transitionPaused) {
+      this.props.history.push(this.props.to);
+      this.props.finishPageTransitionAction();
+      this.setState({ clicked: false });
+    }
+  }
+
   render() {
     const { className, children } = this.props;
     const internalLinkClasses = classNames('InternalLink', className);
+    console.log(this.props);
 
     return (
       <span
@@ -37,7 +61,8 @@ class InternalLink extends React.Component<InternalLinkAllProps> {
   }
 
   handleClick = () => {
-    console.log('this is handleClick');
+    this.setState({ clicked: true });
+    this.props.startPageTransitionAction();
   }
 }
 
@@ -48,12 +73,17 @@ class InternalLink extends React.Component<InternalLinkAllProps> {
 // };
 
 const mapStateToProps = (state: AppState) => ({
+  pageTransitionStatus: layouts.getPageTransitionStatus(state),
 });
 
 const mapDispatchToProps = {
+  startPageTransitionAction,
+  finishPageTransitionAction,
 };
 
-export default withRouter<InternalLinkAllProps>(connect<StateProps, DispatchProps, ComponentProps> (
+const ConnectedInternalLink = connect<StateProps, DispatchProps, ComponentProps>(
   mapStateToProps,
   mapDispatchToProps
-)(InternalLink));
+)(InternalLink);
+
+export default withRouter(ConnectedInternalLink);

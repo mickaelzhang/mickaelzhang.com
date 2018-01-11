@@ -1,6 +1,11 @@
 import { TimelineLite, Quart } from "gsap";
 
 export default {
+  /**
+   * Make Layer appear
+   * @param {*} target
+   * @param {*} cb
+   */
   show(target, cb = () => {}) {
     let tl = new TimelineLite();
 
@@ -10,7 +15,8 @@ export default {
       scaleX: 0,
     });
 
-    tl.to(target, 1, {
+    // Transition
+    tl.to(target, 0.7, {
       scaleX: 1,
       ease: Quart.easeOut,
       onComplete() {
@@ -18,7 +24,12 @@ export default {
       }
     });
   },
-  hide(target) {
+  /**
+   * Make Layer disappear
+   * @param {*} target
+   * @param {*} cb
+   */
+  hide(target, cb) {
     let tl = new TimelineLite();
 
     // Original state
@@ -27,9 +38,13 @@ export default {
       scaleX: 1,
     });
 
-    tl.to(target, 1, {
+    // Transition
+    tl.to(target, 0.7, {
       scaleX: 0,
-      ease: Quart.easeOut
+      ease: Quart.easeOut,
+      onComplete()  {
+        cb();
+      }
     });
   }
 };

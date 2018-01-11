@@ -1,25 +1,31 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
+import { PageTransitionStatus } from '@actions/layouts';
+
 import animations from './animations.js';
 import './PageTransitionLayer.scss';
 
 interface PageTransitionLayerProps {
   className?: string;
-  isActive: boolean;
+  status: string;
+  onTransitionPause: () => void;
+  onTransitionEnd: () => void;
 }
 
 class PageTransitionLayer extends React.Component<PageTransitionLayerProps> {
   component: HTMLDivElement | null;
 
   componentWillReceiveProps(nextProps: PageTransitionLayerProps) {
-    const showLayer = !this.props.isActive && nextProps.isActive;
-    const hideLayer = this.props.isActive && !nextProps.isActive;
+    const transitionStarting = this.props.status === PageTransitionStatus.NONE
+      && nextProps.status === PageTransitionStatus.START;
+    const transitionEnding = this.props.status === PageTransitionStatus.MIDDLE
+      && nextProps.status === PageTransitionStatus.END;
 
-    if (showLayer) {
-      animations.show(this.component);
-    } else if (hideLayer) {
-      animations.hide(this.component);
+    if (transitionStarting) {
+      animations.show(this.component, this.props.onTransitionPause);
+    } else if (transitionEnding) {
+      animations.hide(this.component, this.props.onTransitionEnd);
     }
   }
 
