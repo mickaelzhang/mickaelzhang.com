@@ -28,22 +28,30 @@ type InternalLinkProps = StateProps & DispatchProps & LinkProps & RouteComponent
 
 class InternalLink extends React.Component<InternalLinkProps> {
   static defaultProps = {
-    onMouseEnter: () => {},
-    onMouseLeave: () => {},
+    onMouseEnter: (evt?: React.MouseEvent<any>) => {},
+    onMouseLeave: (evt?: React.MouseEvent<any>) => {},
+    onClick: (evt?: React.MouseEvent<any>) => {},
   };
 
   state = {
     clicked: false
   };
 
+
   componentWillReceiveProps(nextProps: InternalLinkProps) {
     const transitionPaused = this.props.pageTransitionStatus === PageTransitionStatus.START
       && nextProps.pageTransitionStatus === PageTransitionStatus.MIDDLE;
 
+    // If the InternalLink has been clicked on and if the transitionLayer is paused
     if (this.state.clicked &&  transitionPaused) {
       this.props.history.push(this.props.to);
       this.props.finishPageTransitionAction();
       this.setState({ clicked: false });
+
+      // Execute onClick event passed from Link component's props
+      if (this.props.onClick) {
+        this.props.onClick();
+      }
     }
   }
 
@@ -63,7 +71,7 @@ class InternalLink extends React.Component<InternalLinkProps> {
     );
   }
 
-  handleClick = () => {
+  handleClick = (evt: React.MouseEvent<any>) => {
     this.setState({ clicked: true });
     this.props.startPageTransitionAction();
   }

@@ -10,11 +10,12 @@ export interface LinkProps {
   children: string | JSX.Element |  JSX.Element[];
   className?: string;
   to: string;
-  onMouseEnter?: (evt: React.MouseEvent<any>) => void;
-  onMouseLeave?: (evt: React.MouseEvent<any>) => void;
+  onMouseEnter?: (evt?: React.MouseEvent<any>) => void;
+  onMouseLeave?: (evt?: React.MouseEvent<any>) => void;
+  onClick?: (evt?: React.MouseEvent<any>) => void;
 }
 
-const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onMouseLeave }) => {
+const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onMouseLeave, onClick }) => {
   const linkClasses = classNames('Link', className, {
     'Link--Text': typeof children === 'string'
   });
@@ -34,6 +35,7 @@ const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onM
       to={to}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
       {children}
     </InternalLink>
@@ -43,6 +45,7 @@ const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onM
 Link.defaultProps = {
   onMouseEnter: (evt) => {},
   onMouseLeave: (evt) => {},
+  onClick: (evt) => {},
 };
 
 export default Link;
