@@ -1,4 +1,4 @@
-import { TimelineLite, Quart } from "gsap";
+import { TweenLite, Quart } from "gsap";
 
 export default {
   /**
@@ -7,19 +7,13 @@ export default {
    * @param {*} cb
    */
   show(target, cb = () => {}) {
-    let tl = new TimelineLite();
-
-    // Original state
-    tl.to(target, 0, {
+    TweenLite.fromTo(target, 0.5, {
       transformOrigin: 'left',
       scaleX: 0,
-    });
-
-    // Transition
-    tl.to(target, 0.5, {
+    }, {
       scaleX: 1,
       ease: Quart.easeInOut,
-      onComplete() {
+      onComplete() {
         cb();
       }
     });
@@ -30,19 +24,13 @@ export default {
    * @param {*} cb
    */
   hide(target, cb) {
-    let tl = new TimelineLite();
-
-    // Original state
-    tl.to(target, 0, {
+    TweenLite.fromTo(target, 0.5, {
       transformOrigin: 'right',
       scaleX: 1,
-    });
-
-    // Transition
-    tl.to(target, 0.5, {
+    }, {
       scaleX: 0,
       ease: Quart.easeInOut,
-      onComplete()  {
+      onComplete() {
         cb();
       }
     });
