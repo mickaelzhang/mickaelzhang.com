@@ -1,8 +1,12 @@
+@import '~styles/utils';
+
 .NavBar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  @include z-index("nav");
+
   padding: 40px 60px 0;
   display: flex;
   justify-content: space-between;
