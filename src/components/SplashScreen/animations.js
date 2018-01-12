@@ -1,48 +1,55 @@
 import { TimelineLite, Quart } from "gsap";
 
 export default {
-  /**
-   * Make Layer appear
-   * @param {*} target
-   * @param {*} cb
-   */
-  show(target, cb = () => {}) {
+  show(target, cb = () => {}) {
     let tl = new TimelineLite();
+    const banner = target.getElementsByClassName('SplashScreen__Banner')[0];
+    const layer = target.getElementsByClassName('SplashScreen__CoverLayer')[0];
 
     // Original state
-    tl.to(target, 0, {
+    tl.to(banner, 0.1, {
       transformOrigin: 'left',
       scaleX: 0,
     });
 
     // Transition
-    tl.to(target, 0.5, {
+    tl.to(banner, 0.3, {
       scaleX: 1,
-      ease: Quart.easeInOut,
-      onComplete() {
+      ease: Expo.easeInOut,
+    });
+
+    tl.to(layer, 0.3, {
+      transformOrigin: 'right',
+      scaleX: 0,
+      ease: Expo.easeInOut,
+      onComplete() {
         cb();
       }
     });
   },
-  /**
-   * Make Layer disappear
-   * @param {*} target
-   * @param {*} cb
-   */
-  hide(target, cb) {
+  hide(target, cb = () =>  {}) {
     let tl = new TimelineLite();
+    const banner = target.getElementsByClassName('SplashScreen__Banner')[0];
 
     // Original state
-    tl.to(target, 0, {
-      transformOrigin: 'right',
-      scaleX: 1,
+    tl.to(target, 1, {
+      transformOrigin: '0% 0%', // Top
+      scaleY: 1,
     });
 
-    // Transition
-    tl.to(target, 0.5, {
-      scaleX: 0,
-      ease: Quart.easeInOut,
-      onComplete()  {
+    // Make Logo banner dissappear
+    tl.fromTo(banner, 0.2, {
+      opacity: 1,
+    }, {
+      yPercent: -40,
+      opacity: 0,
+    }, "-=0.25");
+
+    // Remove layer
+    tl.to(target, 0.4, {
+      scaleY: 0,
+      ease: Quart.easeOut,
+      onComplete() {
         cb();
       }
     });

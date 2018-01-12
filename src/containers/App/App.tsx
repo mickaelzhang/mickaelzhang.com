@@ -29,7 +29,8 @@ class App extends React.Component<AppProps> {
   }
 
   render() {
-    const { children, pageTransitionStatus } = this.props;
+    const { children, pageTransitionStatus, dataIsLoaded } = this.props;
+
     return (
       <div className="App">
         <PageTransitionLayer
@@ -37,7 +38,7 @@ class App extends React.Component<AppProps> {
           onTransitionPause={this.props.pausePageTransitionAction}
           onTransitionEnd={this.props.endPageTransitionAction}
         />
-        <SplashScreen />
+        <SplashScreen dataIsLoaded={dataIsLoaded} />
         <NavBar />
         <div>
           {children}
