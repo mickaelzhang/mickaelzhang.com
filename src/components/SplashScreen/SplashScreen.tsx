@@ -17,16 +17,10 @@ class SplashScreen extends React.Component<SplashScreenProps> {
   component: HTMLDivElement | null;
 
   componentWillAppear(cb: () => {}) {
-    console.log('componentWillAppear');
     animations.show(this.component, cb);
   }
 
-  componentDidAppear() {
-    // animations.show(this.component);
-  }
-
   componentWillLeave(cb: () => {}) {
-    console.log('componentWillLeave');
     animations.hide(this.component, cb);
   }
 
@@ -37,7 +31,7 @@ class SplashScreen extends React.Component<SplashScreenProps> {
     return (
       <div
         className={splashScreenClasses}
-        ref={element => { this.component = element; } }
+        ref={element => { this.component = element; }}
       >
         <div className="SplashScreen__Banner">
           <div className="SplashScreen__CoverLayer" />
