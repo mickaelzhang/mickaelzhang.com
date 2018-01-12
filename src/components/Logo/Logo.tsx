@@ -1,14 +1,19 @@
 import * as React from 'react';
-
-import Link from '@components/Link';
+import * as classNames from 'classnames';
 
 const logo = require('./logo.svg') as string;
 import './Logo.scss';
 
-const Logo = () => (
-  <Link to="/" className="Logo">
-    <img className="Logo__Image" src={logo} alt="Mickael Zhang" />
-  </Link>
-);
+interface LogoProps {
+  className?: string;
+}
+
+const Logo: React.SFC<LogoProps> = ({ className }) => {
+  const logoClasses = classNames('Logo', className);
+
+  return (
+    <img className={logoClasses} src={logo} alt="Mickael Zhang" />
+  );
+};
 
 export default Logo;
