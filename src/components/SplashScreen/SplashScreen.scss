@@ -1,0 +1,28 @@
+@import '~styles/utils';
+
+.SplashScreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include z-index("loader", 1);
+
+  background-color: #2A2A2A;
+
+  &__Logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes light {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}

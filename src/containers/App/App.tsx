@@ -6,6 +6,7 @@ import { fetchProjectList } from '@actions/projects';
 import { pausePageTransitionAction, endPageTransitionAction } from '@actions/layouts';
 import NavBar from '@components/NavBar';
 import PageTransitionLayer from '@components/PageTransitionLayer';
+import SplashScreen from '@components/SplashScreen';
 
 import './App.scss';
 
@@ -31,15 +32,16 @@ class App extends React.Component<AppProps> {
     const { children, pageTransitionStatus } = this.props;
     return (
       <div className="App">
-        <NavBar />
-        <div>
-          {children}
-        </div>
         <PageTransitionLayer
           status={pageTransitionStatus}
           onTransitionPause={this.props.pausePageTransitionAction}
           onTransitionEnd={this.props.endPageTransitionAction}
         />
+        <SplashScreen />
+        <NavBar />
+        <div>
+          {children}
+        </div>
       </div>
     );
   }
