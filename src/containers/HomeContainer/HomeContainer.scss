@@ -1,15 +1,55 @@
+@import '~styles/utils';
+
 .Home {
   &__ProjectList {
     display: flex;
     flex-wrap: wrap;
-    max-width: 880px;
-    width: 90%;
     margin: 0 auto;
-    padding: 60px 0;
+    padding: 60px 0 14%;
+    width: 80%;
+
+    max-width: 440px;
+    @include breakpoint(860px) {
+      max-width: 880px;
+    }
   }
 
+  $centerMargin: (
+    'default': 20px,
+    '1080': 40px,
+  );
+
   &__ProjectCard {
-    margin: 20px;
-    width: calc(50% - 40px);
+    margin: 40px 0;
+
+    // 2 ProjectCard per row when browser width is at least 860px
+    @include breakpoint(860px) {
+      margin: 20px 0 100px;
+      width: calc(50% - #{map-get($centerMargin, 'default')});
+    }
+    @include breakpoint(1080px) {
+      width: calc(50% - #{map-get($centerMargin, '1080')});
+    }
+  }
+
+  // 1st item of a row
+  &__ProjectCard:nth-child(2n + 1) {
+    @include breakpoint(860px) {
+      margin-right: map-get($centerMargin, 'default');
+    }
+    @include breakpoint(1080px) {
+      margin-right: map-get($centerMargin, '1080');
+    }
+  }
+
+  // 2nd item of a row
+  &__ProjectCard:nth-child(2n) {
+    @include breakpoint(860px) {
+      transform: translateY(30%);
+      margin-left: map-get($centerMargin, 'default');
+    }
+    @include breakpoint(1080px) {
+      margin-left: map-get($centerMargin, '1080');
+    }
   }
 }
