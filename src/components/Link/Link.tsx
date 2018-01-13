@@ -1,6 +1,9 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
+import { isEmail, isExternalLink } from '@utils/regex';
+
+import EmailLink from './components/EmailLink';
 import ExternalLink from './components/ExternalLink';
 import InternalLink from './components/InternalLink';
 
@@ -20,26 +23,37 @@ const Link: React.SFC<LinkProps> = ({ className, children, to, onMouseEnter, onM
     'Link--Text': typeof children === 'string'
   });
 
-  const isExternal = /^https?:\/\//.test(to);
-
-  return isExternal ? (
-    <ExternalLink
-      className={linkClasses}
-      to={to}
-    >
-      {children}
-    </ExternalLink>
-  ) : (
-    <InternalLink
-      className={linkClasses}
-      to={to}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onClick={onClick}
-    >
-      {children}
-    </InternalLink>
-  );
+  if (isExternalLink(to)) {
+    return (
+      <ExternalLink
+        className={linkClasses}
+        to={to}
+      >
+        {children}
+      </ExternalLink>
+    );
+  } else if (isEmail(to)) {
+    return (
+      <EmailLink
+        className={linkClasses}
+        to={to}
+      >
+        {children}
+      </EmailLink>
+    );
+  } else {
+    return (
+      <InternalLink
+        className={linkClasses}
+        to={to}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onClick={onClick}
+      >
+        {children}
+      </InternalLink>
+    );
+  }
 };
 
 Link.defaultProps = {
