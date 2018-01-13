@@ -1,0 +1,19 @@
+/**
+ * breakpoint mixin
+ * Add media-query
+ *
+ * Example:
+ * @include min-width(750px) {
+ *   display: none;
+ * }
+ *   - Result :
+ * @media (min-width: 750px) {
+ *   @content;
+ * }
+ */
+
+@mixin breakpoint($pixel) {
+  @media (min-width: #{$pixel}) {
+    @content;
+  }
+}
