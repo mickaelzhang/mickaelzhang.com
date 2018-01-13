@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { AppState, layouts } from '@reducers/index';
 import { fetchProjectList } from '@actions/projects';
+import { fetchPersonalDetail } from "@actions/details";
 import { pausePageTransitionAction, endPageTransitionAction } from '@actions/layouts';
 import NavBar from '@components/NavBar';
 import PageTransitionLayer from '@components/PageTransitionLayer';
@@ -17,6 +18,7 @@ interface StateProps {
 
 interface DispatchProps {
   fetchProjectList: () => void;
+  fetchPersonalDetail: () => void;
   pausePageTransitionAction: () => void;
   endPageTransitionAction: () => void;
 }
@@ -26,6 +28,7 @@ type AppProps = StateProps & DispatchProps;
 class App extends React.Component<AppProps> {
   componentDidMount() {
     this.props.fetchProjectList();
+    this.props.fetchPersonalDetail();
   }
 
   render() {
@@ -55,6 +58,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = {
   fetchProjectList,
+  fetchPersonalDetail,
   pausePageTransitionAction,
   endPageTransitionAction,
 };

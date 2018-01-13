@@ -71,7 +71,7 @@ export const fetchProjectList = () => {
   };
 };
 
-export type ProjectActions = LoadProjectListRequestAction
+export type ProjectsActions = LoadProjectListRequestAction
   | LoadProjectListSuccessAction
   | LoadProjectListFailAction
   | SelectProjectAction

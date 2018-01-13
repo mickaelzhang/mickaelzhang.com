@@ -46,7 +46,7 @@ export const endPageTransitionAction = () => (
   { type: ActionTypes.PAGE_TRANSITION_END }
 );
 
-export type LayoutActions = StartPageTransitionAction
+export type LayoutsActions = StartPageTransitionAction
   | PausePageTransitionAction
   | FinishPageTransitionAction
   | EndPageTransitionAction;

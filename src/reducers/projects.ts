@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import { createSelector } from 'reselect';
 
-import { ProjectActions, ActionTypes } from '@actions/projects';
+import { ProjectsActions, ActionTypes } from '@actions/projects';
 import IProject from '@models/project';
 
 export type State = {
@@ -16,7 +16,7 @@ const initialState: State = {
   selectedId: null,
 };
 
-export function reducer(state: State = initialState, action: ProjectActions): State {
+export function reducer(state: State = initialState, action: ProjectsActions): State {
   switch (action.type) {
     case ActionTypes.LOAD_SUCCESS: {
       const projects = action.projects;

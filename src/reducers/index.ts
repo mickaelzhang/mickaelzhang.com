@@ -3,21 +3,25 @@ import { createSelector } from 'reselect';
 
 import * as fromProjects from './projects';
 import * as fromLayouts from './layouts';
+import * as fromDetails from './details';
 
 interface StoreEnhancerState {}
 
 export interface AppState extends StoreEnhancerState {
   projects: fromProjects.State;
   layouts: fromLayouts.State;
+  details: fromDetails.State;
 }
 
 const rootReducer = combineReducers<AppState>({
   projects: fromProjects.reducer,
   layouts: fromLayouts.reducer,
+  details: fromDetails.reducer,
 });
 
-const getProjectsState = (state: AppState) => state.projects;
-const getLayoutsState = (state: AppState) => state.layouts;
+export const getProjectsState = (state: AppState) => state.projects;
+export const getLayoutsState = (state: AppState) => state.layouts;
+export const getDetailsState = (state: AppState) => state.details;
 
 /**
  * Every reducer module exports selector functions, however child reducers

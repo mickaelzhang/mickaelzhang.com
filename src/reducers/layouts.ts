@@ -1,5 +1,5 @@
-import { ProjectActions, ActionTypes as ProjectActionTypes } from '@actions/projects';
-import { LayoutActions, ActionTypes as LayoutActionTypes, PageTransitionStatus } from '@actions/layouts';
+import { ProjectsActions, ActionTypes as ProjectActionTypes } from '@actions/projects';
+import { LayoutsActions, ActionTypes as LayoutActionTypes, PageTransitionStatus } from '@actions/layouts';
 
 export type State = {
   readonly dataIsLoaded: boolean;
@@ -11,7 +11,7 @@ const initialState: State = {
   pageTransitionStatus: PageTransitionStatus.NONE,
 };
 
-export function reducer(state: State = initialState, action: ProjectActions | LayoutActions): State {
+export function reducer(state: State = initialState, action: ProjectsActions | LayoutsActions): State {
   switch (action.type) {
     case ProjectActionTypes.LOAD_SUCCESS:
     case ProjectActionTypes.LOAD_FAIL: {
