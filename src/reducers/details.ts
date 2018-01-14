@@ -1,14 +1,14 @@
 import { DetailsActions, ActionTypes as DetailsActionTypes } from '@actions/details';
 
 export type State = {
-  readonly description: string;
+  readonly description: string[];
   readonly github: string;
   readonly email: string;
   readonly resume: string;
 };
 
 const initialState: State = {
-  description: '',
+  description: [],
   github: '',
   email: '',
   resume: '',

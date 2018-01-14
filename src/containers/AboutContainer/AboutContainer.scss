@@ -1,0 +1,30 @@
+@import '~styles/utils';
+
+.About {
+  max-width: 800px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 120px 0;
+
+
+  &__Description {
+    font-family: $font-family-text;
+    font-size: 26px;
+    line-height: 2;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__LinkList {
+    display: flex;
+    margin-top: 40px;
+  }
+
+  &__Link {
+    font-family: $font-family-text;
+    font-size: 24px;
+    margin-right: 80px;
+  }
+}

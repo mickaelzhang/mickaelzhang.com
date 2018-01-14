@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { AppState, layouts } from '@reducers/index';
 import { fetchProjectList } from '@actions/projects';
-import { fetchPersonalDetail } from "@actions/details";
+import { fetchPersonalDetail } from '@actions/details';
 import { pausePageTransitionAction, endPageTransitionAction } from '@actions/layouts';
 import NavBar from '@components/NavBar';
 import PageTransitionLayer from '@components/PageTransitionLayer';
