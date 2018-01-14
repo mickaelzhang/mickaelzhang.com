@@ -20,8 +20,8 @@ class AboutContainer extends React.Component<StateProps> {
       return null;
     }
 
-    const paragraphes = details.description.map(paragraph => (
-      <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraph) }} />
+    const paragraphes = details.description.map((paragraph, index) => (
+      <p key={index} className="About__Paragraph" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraph) }} />
     ));
 
     return (
