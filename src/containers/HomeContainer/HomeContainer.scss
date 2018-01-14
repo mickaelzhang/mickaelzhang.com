@@ -5,12 +5,17 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 60px 0 14%;
     width: 80%;
 
     max-width: 440px;
+    padding: 60px 0;
+
     @include breakpoint(860px) {
       max-width: 880px;
+      padding: 140px 0 220px;
+    }
+    @include breakpoint(1080px) {
+      padding: 140px 0 280px;
     }
   }
 
@@ -20,15 +25,32 @@
   );
 
   &__ProjectCard {
-    margin: 40px 0;
-
     // 2 ProjectCard per row when browser width is at least 860px
     @include breakpoint(860px) {
-      margin: 20px 0 100px;
       width: calc(50% - #{map-get($centerMargin, 'default')});
     }
     @include breakpoint(1080px) {
       width: calc(50% - #{map-get($centerMargin, '1080')});
+    }
+  }
+
+  // Set bottom margin
+  &__ProjectCard {
+    margin-bottom: 80px;
+    @include breakpoint(860px) {
+      margin-bottom: 100px;
+    }
+  }
+
+  // No margin for last ProjectCard
+  &__ProjectCard:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+
+  // No margin for the 2nd last when there is two row
+  &__ProjectCard:nth-last-child(2):nth-child(odd) {
+    @include breakpoint(860px) {
+      margin-bottom: 0;
     }
   }
 
