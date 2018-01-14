@@ -5,7 +5,7 @@
   display: block;
   text-decoration: none;
   padding-top: 25%;
-  background-color: $grey-cod-gray;
+  background-color: lighten($color-background, 3%);
 
   &__Text {
     position: absolute;

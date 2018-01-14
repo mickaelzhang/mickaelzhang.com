@@ -23,7 +23,7 @@
     transform: scaleX(0);
     transform-origin: left;
 
-    background-color: #2A2A2A;
+    background-color: lighten($color-background, 2%);
   }
 
   &__Background {
