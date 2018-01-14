@@ -1,5 +1,5 @@
 {
-  "name": "type-react",
+  "name": "personal-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -108,7 +108,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfigFile": "/Users/mickaelzhang/DEV/type-react/tsconfig.test.json"
+        "tsConfigFile": "/Users/mickaelzhang/DEV/personal-website/tsconfig.test.json"
       }
     }
   },
