@@ -9,10 +9,17 @@
     max-width: 860px;
     margin: 0 auto;
 
-    font-size: 64px;
     font-family: $font-family-title;
     text-align: center;
     line-height: 0.9;
+
+    font-size: 32px;
+    @include breakpoint(480px) {
+      font-size: 42px;
+    }
+    @include breakpoint(860px) {
+      font-size: 64px;
+    }
   }
 
   &__Type {

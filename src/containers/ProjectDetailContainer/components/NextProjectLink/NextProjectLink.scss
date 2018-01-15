@@ -2,32 +2,38 @@
 
 .NextProjectLink {
   position: relative;
-  display: block;
   text-decoration: none;
-  padding-top: 25%;
   background-color: lighten($color-background, 3%);
 
-  &__Text {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    padding: 0 8%;
-  }
+  display: flex;
+  flex-direction: column;
 
   &__Label {
-    font-size: 14px;
-    font-family: $font-family-text;
-    text-transform: lowercase;
     text-align: center;
     color: $color-font-primary;
+    font-family: $font-family-text;
+    text-transform: lowercase;
+    font-size: 14px;
   }
 
   &__Name {
-    font-size: 32px;
-    font-family: $font-family-title;
     text-align: center;
     color: $color-font-primary;
+    font-family: $font-family-title;
+    font-size: 32px;
+  }
+
+  padding: 40px 30px;
+  &__Label { font-size: 10px; }
+  &__Name { font-size: 24px; }
+
+  @include breakpoint(480px) {
+    padding: 60px 50px;
+    &__Label { font-size: 14px; }
+    &__Name { font-size: 32px; }
+  }
+
+  @include breakpoint(480px) {
+    padding: 100px 80px;
   }
 }

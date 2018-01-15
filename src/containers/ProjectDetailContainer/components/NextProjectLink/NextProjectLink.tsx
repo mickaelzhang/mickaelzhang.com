@@ -21,10 +21,8 @@ const NextProjectLink: React.SFC<NextProjectLinkProps> = ({ className, project, 
       to={`/projects/${project.id}`}
       onClick={() => onClick()}
     >
-      <div className="NextProjectLink__Text">
-        <div className="NextProjectLink__Label">Next project</div>
-        <div className="NextProjectLink__Name">{project.name}</div>
-      </div>
+      <div className="NextProjectLink__Label">Next project</div>
+      <div className="NextProjectLink__Name">{project.name}</div>
     </Link>
   );
 };
