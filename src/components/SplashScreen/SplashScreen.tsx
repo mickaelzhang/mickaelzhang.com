@@ -8,15 +8,27 @@ import Logo from '@components/Logo';
 import animations from './animations.js';
 import './SplashScreen.scss';
 
-interface SplashScreenProps {
+interface WrappedSplashScreenProps {
   className?: string;
   dataIsLoaded?: boolean;
+}
+
+interface SplashScreenProps extends WrappedSplashScreenProps {
+  onStartAnimationEnd: () => void;
+}
+
+interface AnimationState {
+  appeared: boolean;
 }
 
 class SplashScreen extends React.Component<SplashScreenProps> {
   component: HTMLDivElement | null;
 
-  componentWillAppear(cb: () => {}) {
+  componentDidAppear() {
+    const cb = () => {
+      this.props.onStartAnimationEnd();
+    };
+
     animations.show(this.component, cb);
   }
 
@@ -42,10 +54,25 @@ class SplashScreen extends React.Component<SplashScreenProps> {
   }
 }
 
-export default ({ dataIsLoaded, ...props}: SplashScreenProps) => {
-  return (
-    <TransitionGroup component={React.Fragment}>
-      {!dataIsLoaded ? <SplashScreen {...props} /> : undefined}
-    </TransitionGroup>
-  );
-};
+export default class WrappedSplashScreen extends React.Component<WrappedSplashScreenProps, AnimationState> {
+  state = {
+    appeared: false,
+  };
+
+  animationAppearFinished = () => {
+    this.setState({ appeared: true });
+  }
+
+  render() {
+    const { dataIsLoaded, ...props } = this.props;
+
+    return (
+      <TransitionGroup component={React.Fragment}>
+        {!this.state.appeared && !dataIsLoaded ?
+          <SplashScreen onStartAnimationEnd={this.animationAppearFinished} {...props} />
+          : undefined
+        }
+      </TransitionGroup>
+    );
+  }
+}
