@@ -26,11 +26,13 @@ class AboutContainer extends React.Component<StateProps> {
 
     return (
       <div className="About">
-        <div className="About__Description">{paragraphes}</div>
-        <div className="About__LinkList">
-          <Link className="About__Link" to={details.github}>github</Link>
-          <Link className="About__Link" to={details.resume}>resume</Link>
-          <Link className="About__Link" to={details.email}>email</Link>
+        <div className="About__Content">
+          <div className="About__Description">{paragraphes}</div>
+          <div className="About__LinkList">
+            <Link className="About__Link" to={details.github}>github</Link>
+            <Link className="About__Link" to={details.resume}>resume</Link>
+            <Link className="About__Link" to={details.email}>email</Link>
+          </div>
         </div>
       </div>
     );
