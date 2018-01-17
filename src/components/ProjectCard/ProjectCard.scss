@@ -6,6 +6,7 @@
   width: 100%;
   text-decoration: none;
   transition: opacity 0.35s ease-out;
+  transition-delay: 0.1s;
 
   &--Inactive {
     opacity: 0.25;
