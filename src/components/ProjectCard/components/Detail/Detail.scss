@@ -9,7 +9,8 @@
     font-family: $font-family-title;
     font-size: 8px;
     font-weight: bold;
-    color: $color-font-secondary;
+    color: lighten($color-background, 25%);
+    margin-bottom: 2px;
   }
 
   &__Detail {
