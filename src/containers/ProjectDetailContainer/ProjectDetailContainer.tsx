@@ -6,8 +6,7 @@ import { unselectProjectAction, selectProjectAction } from '@actions/projects';
 import { AppState, projects } from '@reducers/index';
 import IProject from '@models/project';
 
-import ProjectTitle from './components/ProjectTitle';
-import HeroImage from './components/HeroImage';
+import ProjectHero from './components/ProjectHero';
 import ProjectOverview from './components/ProjectOverview';
 import ModularContent from '@components/ModularContent';
 import NextProjectLink from './components/NextProjectLink';
@@ -60,12 +59,9 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
 
     return (
       <div className="ProjectDetail">
-        <ProjectTitle
-          className="ProjectDetail__Title"
+        <ProjectHero
+          className="ProjectDetail__Hero"
           title={project.name}
-        />
-        <HeroImage
-          className="ProjectDetail__HeroImage"
           src={project.heroImage}
         />
         <ProjectOverview

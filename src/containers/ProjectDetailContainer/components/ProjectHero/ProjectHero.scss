@@ -1,18 +1,34 @@
 @import '~styles/utils';
 
-.ProjectTitle {
-  display: block;
-  width: 100%;
+.ProjectHero {
+  height: 80vh;
+  min-height: 400px;
+  max-height: 600px;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-aspect-ratio: 9/16) {
+    min-height: none;
+    height: 100vw;
+  }
+
+  &__Container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      background-color: rgba($black, 0.5);
+  }
 
   &__Name {
     width: 80%;
     max-width: 860px;
     margin: 0 auto;
-
     font-family: $font-family-title;
     text-align: center;
     line-height: 0.9;
-
     font-size: 32px;
     @include breakpoint(480px) {
       font-size: 42px;
