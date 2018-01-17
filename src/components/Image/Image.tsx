@@ -13,7 +13,11 @@ const Image: React.SFC<ImageProps> = ({ className, src }) => {
   const imageClasses = classNames('Image', className);
 
   return (
-    <img className={imageClasses} src={src.original} srcSet={getSrcSet(src)} alt="" />
+    <div className={imageClasses}>
+      <div className="Image__Container" style={{ 'paddingTop': `${src.sizes.ratio * 100}%` }}>
+        <img className="Image__DetailedImage" src={src.original} srcSet={getSrcSet(src)} alt="" />
+      </div>
+    </div>
   );
 };
 
