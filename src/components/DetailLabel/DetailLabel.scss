@@ -1,10 +1,10 @@
 @import '~styles/utils';
 
-.Detail {
+.DetailLabel {
   display: flex;
   flex-direction: column;
 
-  &__Label {
+  &__Type {
     text-transform: uppercase;
     font-family: $font-family-title;
     font-size: 8px;
@@ -13,7 +13,7 @@
     margin-bottom: 2px;
   }
 
-  &__Detail {
+  &__Text {
     font-family: $font-family-text;
     font-size: 14px;
     color: $color-font-primary;
