@@ -12,7 +12,15 @@ export default interface IProject {
 
 export interface IImage {
   original: string;
+  blured: string;
+  sizes: IImageSizes;
   srcSet: IImageSrcSet[];
+}
+
+export interface IImageSizes {
+  width: number;
+  height: number;
+  ratio: number;
 }
 
 export interface IImageSrcSet {
