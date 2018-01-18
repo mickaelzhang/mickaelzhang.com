@@ -1,0 +1,21 @@
+@import '~styles/utils';
+
+.NotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+
+  text-align: center;
+
+  &__404 {
+    font-family: $font-family-title;
+    font-size: 120px;
+    line-height: 1em;
+  }
+
+  &__Text {
+    text-transform: lowercase;
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,8 @@ import HomeContainer from '@containers/HomeContainer';
 import AboutContainer from '@containers/AboutContainer';
 import ProjectDetailContainer from '@containers/ProjectDetailContainer';
 
+import NotFound from '@components/NotFound';
+
 import configureStore from './configureStore';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -18,13 +20,14 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <Router>
+      <App>
         <Switch>
-          <App>
-            <Route exact path="/" component={HomeContainer} />
-            <Route path="/about" component={AboutContainer} />
-            <Route path="/projects/:id" component={ProjectDetailContainer} />
-          </App>
+          <Route exact path="/" component={HomeContainer} />
+          <Route path="/about" component={AboutContainer} />
+          <Route path="/projects/:id" component={ProjectDetailContainer} />
+          <Route component={NotFound} />
         </Switch>
+      </App>
     </Router>
   </Provider>,
   document.getElementById('root') as HTMLElement
