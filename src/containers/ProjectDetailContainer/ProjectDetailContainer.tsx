@@ -6,9 +6,10 @@ import { unselectProjectAction, selectProjectAction } from '@actions/projects';
 import { AppState, projects } from '@reducers/index';
 import IProject from '@models/project';
 
+import ModularContent from '@components/ModularContent';
+import NotFound from '@components/NotFound';
 import ProjectHero from './components/ProjectHero';
 import ProjectOverview from './components/ProjectOverview';
-import ModularContent from '@components/ModularContent';
 import NextProjectLink from './components/NextProjectLink';
 
 import './ProjectDetailContainer.scss';
@@ -45,6 +46,10 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
 
   render() {
     const { project, nextProject } = this.props;
+
+    if (typeof project === 'undefined') {
+      return <NotFound />;
+    }
 
     if (!project || !nextProject) {
       return null;
