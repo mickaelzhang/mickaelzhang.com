@@ -2,6 +2,7 @@
 
 .Link {
   cursor: pointer;
+  pointer-events: all;
   display: flex;
 
   &--Text {
