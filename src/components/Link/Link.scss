@@ -8,5 +8,49 @@
     font-size: 14px;
     text-transform: lowercase;
     color: $color-font-primary;
+    position: relative;
+
+    $hover-duration: 0.3s;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      background-color: $color-font-primary;
+
+      animation-name: hover-out;
+      animation-duration: $hover-duration;
+      transform-origin: right;
+      transform: scaleX(0);
+    }
+
+    &:hover:after {
+      animation-name: hover-in;
+      animation-duration: $hover-duration;
+      animation-fill-mode: forwards;
+      transform-origin: left;
+    }
   }
+
+  @keyframes hover-in {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes hover-out {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
 }
