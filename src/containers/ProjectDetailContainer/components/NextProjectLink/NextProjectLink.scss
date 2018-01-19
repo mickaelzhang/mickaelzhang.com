@@ -3,10 +3,36 @@
 .NextProjectLink {
   position: relative;
   text-decoration: none;
-  background-color: lighten($color-background, 3%);
 
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
+  &__BackgroundImage, &__Layer {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+  }
+
+  &__BackgroundImage {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__Layer {
+    background-color: lighten($color-background, 3%);
+    opacity: 0.98;
+    transition-delay: 0.1s;
+    transition: opacity 0.6s ease-out;
+  }
+
+  &:hover &__Layer {
+    opacity: 0.88;
+  }
+
+  &__Text {
+    position: relative;
+  }
 
   &__Label {
     text-align: center;
