@@ -73,6 +73,9 @@ class ProjectDetailContainer extends React.Component<ProjectDetailProps> {
           className="ProjectDetail__Overview"
           text={project.description}
           links={project.links}
+          type={project.type}
+          stack={project.stack}
+          launchDate={project.launchDate}
         />
         {modularContent}
         <NextProjectLink

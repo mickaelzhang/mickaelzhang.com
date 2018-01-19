@@ -3,6 +3,7 @@ export default interface IProject {
   name: string;
   type: string;
   stack: string;
+  launchDate: string;
   description: string;
   links: IProjectLink[];
   heroImage: IImage;
