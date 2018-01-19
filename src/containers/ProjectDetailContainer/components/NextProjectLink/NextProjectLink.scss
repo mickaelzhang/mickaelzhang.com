@@ -3,6 +3,7 @@
 .NextProjectLink {
   position: relative;
   text-decoration: none;
+  background-color: lighten($color-background, 3%);
 
   display: flex;
   flex-direction: column;
