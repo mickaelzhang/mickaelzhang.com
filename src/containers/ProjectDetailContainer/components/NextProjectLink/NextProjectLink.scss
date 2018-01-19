@@ -22,13 +22,18 @@
 
   &__Layer {
     background-color: lighten($color-background, 3%);
-    opacity: 0.98;
-    transition-delay: 0.1s;
-    transition: opacity 0.6s ease-out;
   }
 
-  &:hover &__Layer {
-    opacity: 0.88;
+  @include breakpoint(480px) {
+    &__Layer {
+      opacity: 0.98;
+      transition-delay: 0.1s;
+      transition: opacity 0.6s ease-out;
+    }
+
+    &:hover &__Layer {
+      opacity: 0.88;
+    }
   }
 
   &__Text {
