@@ -32,7 +32,7 @@ export default {
     const banner = target.querySelector('.SplashScreen__Banner');
 
     // Original state
-    tl.to(target, 1, {
+    tl.to(target, 1.4, {
       transformOrigin: '0% 0%', // Top
       scaleY: 1,
     });

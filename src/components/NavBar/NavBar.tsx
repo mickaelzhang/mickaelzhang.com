@@ -8,7 +8,7 @@ import './NavBar.scss';
 const NavBar = () => (
   <div className="NavBar">
     <Link to="/" className="NavBar__Logo">
-      <Logo />
+      <Logo className="NavBar__LogoImage" />
     </Link>
     <div className="NavBar__Menu">
       <Link className="NavBar__Link" to="/">Home</Link>
