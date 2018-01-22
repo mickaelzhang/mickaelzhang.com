@@ -39,7 +39,7 @@ const ProjectOverview: React.SFC<ProjectOverviewProps> = ({ className, text, typ
         />
         <DetailLabel
           className="ProjectOverview__DetailItem"
-          type="Launched"
+          type="date"
           text={launchDate}
         />
       </div>

@@ -14,12 +14,19 @@ interface ImageBlockProps {
 
 const ImageBlock: React.SFC<ImageBlockProps> = ({ className, src, type }) => {
   const imageBlockClasses = classNames('ImageBlock', className, {
-    'ImageBlock--FullWidth': type === 'full-width'
+    'ImageBlock--Normal': type === 'normal',
+    'ImageBlock--FullWidth': type === 'full-width',
   });
 
   return(
-    <Image className={imageBlockClasses} src={src} />
+    <div className={imageBlockClasses}>
+      <Image className="ImageBlock__Image" src={src} />
+    </div>
   );
+};
+
+ImageBlock.defaultProps = {
+  type: 'normal'
 };
 
 export default ImageBlock;

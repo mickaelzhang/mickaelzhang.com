@@ -1,11 +1,20 @@
+@import '~styles/utils';
+
 .ImageBlock {
   display: block;
-  width: 80%;
-  max-width: 800px;
-  margin: 0 auto;
 
-  &--FullWidth {
+  &--Normal {
+    padding: 60px 0;
+    background-color: lighten($color-background, 2%);
+  }
+
+  &--Normal &__Image {
+    width: 80%;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+
+  &--FullWidth &__Image {
     width: 100%;
-    max-width: none;
   }
 }

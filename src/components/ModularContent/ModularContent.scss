@@ -5,6 +5,9 @@
   flex-direction: column;
 
   &__Block {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
+    @include breakpoint(800px) {
+      margin-bottom: 120px;
+    }
   }
 }
