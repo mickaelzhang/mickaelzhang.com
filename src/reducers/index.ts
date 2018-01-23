@@ -33,7 +33,6 @@ export const getDetailsState = (state: AppState) => state.details;
  * Methods for Projects Reducer
  */
 export const layouts = {
-  getDataIsLoaded: createSelector(getLayoutsState, fromLayouts.getDataIsLoaded),
   getPageTransitionStatus: createSelector(getLayoutsState, fromLayouts.getPageTransitionStatus),
 };
 
@@ -47,6 +46,20 @@ export const projects = {
   getSelected: createSelector(getProjectsState, fromProjects.getSelected),
   getNextProject: createSelector(getProjectsState, fromProjects.getNextProject),
   getAll: createSelector(getProjectsState, fromProjects.getAll),
+  getIsLoaded: createSelector(getProjectsState, fromProjects.getIsLoaded),
 };
+
+/**
+ * Methods for Details Reducer
+ */
+export const details = {
+  getData: createSelector(getDetailsState, fromDetails.getData),
+  getIsLoaded: createSelector(getDetailsState, fromDetails.getIsLoaded),
+};
+
+export const getDataIsLoaded = createSelector(
+  [projects.getIsLoaded, details.getIsLoaded],
+  (projectsAreLoaded: boolean, detailsAreLoaded: boolean) => projectsAreLoaded && detailsAreLoaded
+);
 
 export default rootReducer;

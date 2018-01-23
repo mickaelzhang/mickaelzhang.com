@@ -2,7 +2,7 @@ import { Action, Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
 import { AppState } from '@reducers/index';
-import { State as DetailState } from '@reducers/details';
+import { IDetail } from '@models/detail';
 import DetailService from '@services/detailService';
 
 export enum ActionTypes {
@@ -17,7 +17,7 @@ export interface DetailsLoadRequestAction extends Action {
 
 export interface DetailsLoadSuccessAction extends Action {
   type: ActionTypes.DETAILS_LOAD_SUCCESS;
-  details: DetailState;
+  details: IDetail;
 }
 
 export interface DetailsLoadFailAction extends Action {
@@ -28,7 +28,7 @@ export const detailsLoadRequestAction = () => (
   { type: ActionTypes.DETAILS_LOAD_REQUEST }
 );
 
-export const detailsLoadSuccessAction = (details: DetailState) => (
+export const detailsLoadSuccessAction = (details: IDetail) => (
   { type: ActionTypes.DETAILS_LOAD_SUCCESS, details: details }
 );
 
@@ -42,7 +42,7 @@ export const fetchPersonalDetail = () => {
 
     DetailService.getInfo().then((response: AxiosResponse) => {
       if (response.status === 200) {
-        dispatch(detailsLoadSuccessAction(response.data as DetailState));
+        dispatch(detailsLoadSuccessAction(response.data as IDetail));
       } else {
         dispatch(detailsLoadFailAction());
       }

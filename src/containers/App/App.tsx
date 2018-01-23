@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { AppState, layouts } from '@reducers/index';
+import { AppState, layouts, getDataIsLoaded } from '@reducers/index';
 import { fetchProjectList } from '@actions/projects';
 import { fetchPersonalDetail } from '@actions/details';
 import { pausePageTransitionAction, endPageTransitionAction } from '@actions/layouts';
@@ -52,7 +52,7 @@ class App extends React.Component<AppProps> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  dataIsLoaded: layouts.getDataIsLoaded(state),
+  dataIsLoaded: getDataIsLoaded(state),
   pageTransitionStatus: layouts.getPageTransitionStatus(state),
 });
 

@@ -8,12 +8,14 @@ export type State = {
   readonly byId: { [id: string]: IProject };
   readonly allIds: string[];
   readonly selectedId: string | null;
+  readonly isLoaded: boolean;
 };
 
 const initialState: State = {
   byId: {},
   allIds: [],
   selectedId: null,
+  isLoaded: false,
 };
 
 export function reducer(state: State = initialState, action: ProjectsActions): State {
@@ -30,7 +32,8 @@ export function reducer(state: State = initialState, action: ProjectsActions): S
 
       return {...state,
         allIds: _.union(state.allIds, newIds),
-        byId: entityById
+        byId: entityById,
+        isLoaded: true,
       };
     }
 
@@ -56,6 +59,7 @@ export function reducer(state: State = initialState, action: ProjectsActions): S
 export const getAllIds = (state: State) => state.allIds;
 export const getEntities = (state: State) => state.byId;
 export const getSelectedId = (state: State) => state.selectedId;
+export const getIsLoaded = (state: State) => state.isLoaded;
 
 export const getSelected = createSelector(getEntities, getSelectedId, (entities, selectedId) => {
   return selectedId ? entities[selectedId] : null;

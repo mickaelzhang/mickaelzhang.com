@@ -2,25 +2,25 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import * as DOMPurify from 'dompurify';
 
-import { AppState, getDetailsState } from '@reducers/index';
-import { State as DetailsState } from '@reducers/details';
+import { AppState, details } from '@reducers/index';
+import { IDetail } from '@models/detail';
 import Link from '@components/Link';
 
 import './AboutContainer.scss';
 
 interface StateProps {
-  details: DetailsState | null;
+  info: IDetail | null;
 }
 
 class AboutContainer extends React.Component<StateProps> {
   render() {
-    const { details } = this.props;
+    const { info } = this.props;
 
-    if (!details) {
+    if (!info) {
       return null;
     }
 
-    const paragraphes = details.description.map((paragraph, index) => (
+    const paragraphes = info.description.map((paragraph, index) => (
       <p key={index} className="About__Paragraph" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraph) }} />
     ));
 
@@ -29,9 +29,9 @@ class AboutContainer extends React.Component<StateProps> {
         <div className="About__Content">
           <div className="About__Description">{paragraphes}</div>
           <div className="About__LinkList">
-            <Link className="About__Link" to={details.github}>github</Link>
-            <Link className="About__Link" to={details.resume}>resume</Link>
-            <Link className="About__Link" to={details.email}>email</Link>
+            <Link className="About__Link" to={info.github}>github</Link>
+            <Link className="About__Link" to={info.resume}>resume</Link>
+            <Link className="About__Link" to={info.email}>email</Link>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@ class AboutContainer extends React.Component<StateProps> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  details: getDetailsState(state),
+  info: details.getData(state),
 });
 
 export default connect<StateProps, {}, any>(mapStateToProps, {})(AboutContainer);
