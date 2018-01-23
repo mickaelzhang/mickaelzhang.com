@@ -4,8 +4,10 @@
   display: block;
 
   &--Normal {
-    padding: 60px 0;
-    background-color: lighten($color-background, 2%);
+    @include breakpoint(680px) {
+      padding: 60px 0;
+      background-color: lighten($color-background, 2%);
+    }
   }
 
   &--Normal &__Image {
