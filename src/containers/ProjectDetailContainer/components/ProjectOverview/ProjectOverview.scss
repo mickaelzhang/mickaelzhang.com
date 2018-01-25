@@ -1,0 +1,51 @@
+@import '~styles/utils';
+
+.ProjectOverview {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  max-width: 740px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(960px) {
+    flex-direction: row;
+  }
+
+  &__Details {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 0 auto;
+
+    @include breakpoint(960px) {
+      max-width: 140px;
+    }
+  }
+
+  &__DetailItem {
+    max-width: 240px;
+  }
+
+  &__DetailItem:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  &__Description {
+    margin-bottom: 80px;
+
+    @include breakpoint(960px) {
+      margin-right: 60px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__Text {
+    font-family: $font-family-text;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+}

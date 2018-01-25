@@ -1,0 +1,10 @@
+@import '~styles/utils';
+
+.ProjectLinks {
+  display: flex;
+
+  &__Link {
+    margin-right: 40px;
+    font-size: 16px;
+  }
+}

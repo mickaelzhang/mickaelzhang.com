@@ -1,0 +1,71 @@
+@import '~styles/utils';
+
+.NextProjectLink {
+  position: relative;
+  text-decoration: none;
+  background-color: lighten($color-background, 3%);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__BackgroundImage, &__Layer {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+  }
+
+  &__BackgroundImage {
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__Layer {
+    background-color: lighten($color-background, 3%);
+  }
+
+  @include breakpoint(480px) {
+    &__Layer {
+      opacity: 0.98;
+      transition-delay: 0.1s;
+      transition: opacity 0.6s ease-out;
+    }
+
+    &:hover &__Layer {
+      opacity: 0.88;
+    }
+  }
+
+  &__Text {
+    position: relative;
+  }
+
+  &__Label {
+    text-align: center;
+    color: $color-font-primary;
+    font-family: $font-family-text;
+    text-transform: lowercase;
+    font-size: 14px;
+  }
+
+  &__Name {
+    text-align: center;
+    color: $color-font-primary;
+    font-family: $font-family-title;
+    font-size: 32px;
+  }
+
+  padding: 60px 30px;
+  &__Label { font-size: 16px; }
+  &__Name { font-size: 28px; }
+
+  @include breakpoint(480px) {
+    padding: 60px 50px;
+    &__Label { font-size: 14px; }
+    &__Name { font-size: 32px; }
+  }
+
+  @include breakpoint(480px) {
+    padding: 100px 80px;
+  }
+}

@@ -1,0 +1,46 @@
+@import '~styles/utils';
+
+.NavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  @include z-index("nav");
+
+  pointer-events: none;
+
+  padding: 40px 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint(480px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__LogoImage {
+    font-size: 20px;
+
+    margin-bottom: 16px;
+    @include breakpoint(480px) {
+      margin-bottom: 0;
+      font-size: 16px;
+    }
+  }
+
+  &__Menu {
+    display: flex;
+  }
+
+  &__Link {
+    font-size: 16px;
+    @include breakpoint(480px) {
+      font-size: 14px;
+    }
+  }
+
+  &__Link:not(:first-child) {
+    margin: 0 0 0 40px;
+  }
+}

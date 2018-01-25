@@ -1,0 +1,53 @@
+@import '~styles/utils';
+
+.About {
+  margin: 0 auto;
+  padding: 120px 0;
+  max-width: 800px;
+  width: 80%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__Paragraph {
+    margin: 0;
+    font-family: $font-family-text;
+    line-height: 2;
+
+    font-size: 18px;
+    @include breakpoint(720px) { font-size: 22px; }
+    @include breakpoint(860px) { font-size: 26px; }
+  }
+
+  &__Content {
+    position: relative;
+    padding-bottom: 60px;
+  }
+
+  &__LinkList {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+  }
+
+  &__Link {
+    font-family: $font-family-text;
+
+    font-size: 18px;
+    margin-right: 30px;
+    @include breakpoint(560px) {
+      margin-right: 60px;
+    }
+    @include breakpoint(720px) {
+      font-size: 22px;
+      margin-right: 80px;
+    }
+    @include breakpoint(860px) {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '~styles/utils';
+
+.DetailLabel {
+  display: flex;
+  flex-direction: column;
+
+  &__Type {
+    text-transform: uppercase;
+    font-family: $font-family-title;
+    font-size: 8px;
+    font-weight: bold;
+    color: lighten($color-background, 25%);
+    margin-bottom: 2px;
+  }
+
+  &__Text {
+    font-family: $font-family-text;
+    font-size: 14px;
+    color: $color-font-primary;
+    line-height: 1.6;
+  }
+}

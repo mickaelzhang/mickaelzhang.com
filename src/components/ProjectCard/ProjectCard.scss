@@ -1,0 +1,51 @@
+@import '~styles/utils';
+
+.ProjectCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+  transition: opacity 0.35s ease-out;
+  transition-delay: 0.1s;
+
+  &--Inactive {
+    opacity: 0.25;
+  }
+
+  &__Thumbnail {
+    width: 100%;
+    height: auto;
+  }
+
+  &__Info {
+    position: relative;
+    display: flex;
+    padding-top: 24px;
+  }
+
+  &__Name {
+    $name-offset: 24px;
+
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-#{$name-offset}, -50%);
+    width: calc(100% + #{$name-offset});
+
+    color: $color-font-primary;
+    text-shadow: 1px -1px 4px rgba($black, 0.3);
+    font-family: $font-family-title;
+    font-weight: bold;
+
+    font-size: 18px;
+    @include breakpoint(380px) { font-size: 22px; }
+    @include breakpoint(480px) { font-size: 28px; }
+    @include breakpoint(860px) { font-size: 24px; }
+    @include breakpoint(1080px) { font-size: 28px; }
+  }
+
+  &__Type {
+    margin-right: 40px;
+  }
+}
