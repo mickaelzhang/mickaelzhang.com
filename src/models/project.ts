@@ -4,11 +4,11 @@ export default interface IProject {
   type: string;
   stack: string;
   launchDate: string;
-  description: string;
+  description: string[];
   links: IProjectLink[];
   heroImage: IImage;
   thumbnail: IImage;
-  content: IImageBlock[] | null;
+  content: IModularBlock[] | null;
 }
 
 export interface IImage {
@@ -34,7 +34,22 @@ export interface IProjectLink {
   url: string;
 }
 
+export enum ModularContentType {
+  NormalImage = 'image_normal',
+  FullWidthImage = 'image_full-width',
+  TextWithTitle = 'text_with_title',
+  TextOnly = 'text_only',
+}
+
 export interface IImageBlock {
-  type: string;
+  type: ModularContentType.FullWidthImage | ModularContentType.NormalImage;
   image: IImage;
 }
+
+export interface ITextBlock {
+  type: ModularContentType.TextOnly | ModularContentType.TextWithTitle;
+  title?: string;
+  text: string[];
+}
+
+export type IModularBlock = IImageBlock | ITextBlock;
