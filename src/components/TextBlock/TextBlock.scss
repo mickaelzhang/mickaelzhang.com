@@ -1,0 +1,15 @@
+@import '~styles/utils';
+
+.TextBlock {
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
+
+  &__Title {
+    font-family: $font-family-title;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}

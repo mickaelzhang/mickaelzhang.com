@@ -5,12 +5,13 @@ import { IProjectLink } from '@models/project';
 
 import ProjectLinks from '../ProjectLinks';
 import DetailLabel from '@components/DetailLabel';
+import Text from '@components/Text';
 
 import './ProjectOverview.scss';
 
 interface ProjectOverviewProps {
   className?: string;
-  text: string;
+  text: string[];
   links: IProjectLink[];
   type: string;
   stack: string;
@@ -23,7 +24,7 @@ const ProjectOverview: React.SFC<ProjectOverviewProps> = ({ className, text, typ
   return (
     <div className={projectOverviewClasses}>
       <div className="ProjectOverview__Description">
-        <div className="ProjectOverview__Text">{text}</div>
+        <Text className="ProjectOverview__Text" value={text} />
         <ProjectLinks links={links} />
       </div>
       <div className="ProjectOverview__Details">

@@ -1,22 +1,23 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-import { IImageBlock } from '@models/project';
+import { IModularBlock, ModularContentType } from '@models/project';
 import ImageBlock from '@components/ImageBlock';
+import TextBlock from '@components/TextBlock';
 
 import './ModularContent.scss';
 
 interface ModularContentProps {
   className?: string;
-  content: IImageBlock[];
+  content: IModularBlock[];
 }
 
 const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) => {
   const modularContentClasses = classNames('ModularContent', className);
 
-  const modularContent = content.map((block: IImageBlock, index: number) => {
+  const modularContent = content.map((block: IModularBlock, index: number) => {
     switch (block.type) {
-      case 'image_normal':
+      case ModularContentType.NormalImage:
         return (
           <ImageBlock
             key={index}
@@ -24,13 +25,30 @@ const ModularContent: React.SFC<ModularContentProps> = ({ className, content }) 
             src={block.image}
           />
         );
-      case 'image_full-width':
+      case ModularContentType.FullWidthImage:
         return (
           <ImageBlock
             key={index}
             className="ModularContent__Block ModularContent__ImageFullWidth"
             src={block.image}
             type="full-width"
+          />
+        );
+      case ModularContentType.TextWithTitle:
+        return (
+          <TextBlock
+            key={index}
+            className="ModularContent__Block ModularContent__TextWithTitle"
+            title={block.title}
+            text={block.text}
+          />
+        );
+      case ModularContentType.TextOnly:
+        return (
+          <TextBlock
+            key={index}
+            className="ModularContent__Block ModularContent__TextOnly"
+            text={block.text}
           />
         );
       default:

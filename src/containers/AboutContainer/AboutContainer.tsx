@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import * as DOMPurify from 'dompurify';
 
 import { AppState, details } from '@reducers/index';
 import { IDetail } from '@models/detail';
 import Link from '@components/Link';
+import Text from '@components/Text';
 
 import './AboutContainer.scss';
 
@@ -20,14 +20,10 @@ class AboutContainer extends React.Component<StateProps> {
       return null;
     }
 
-    const paragraphes = info.description.map((paragraph, index) => (
-      <p key={index} className="About__Paragraph" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(paragraph) }} />
-    ));
-
     return (
       <div className="About">
         <div className="About__Content">
-          <div className="About__Description">{paragraphes}</div>
+          <Text className="About__Description" value={info.description} />
           <div className="About__LinkList">
             <Link className="About__Link" to={info.github}>github</Link>
             <Link className="About__Link" to={info.resume}>resume</Link>
