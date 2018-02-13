@@ -16,7 +16,7 @@ const TextBlock: React.SFC<TextBlockProps> = ({ className, title, text }) => {
 
   return(
     <div className={TextBlockClasses}>
-      <div className="TextBlock__Title">{title}</div>
+      {title ? <div className="TextBlock__Title">{title}</div> : null}
       <Text className="TextBlock__Text" value={text} />
     </div>
   );
