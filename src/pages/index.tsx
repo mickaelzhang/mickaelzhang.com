@@ -1,3 +1,9 @@
 import React from "react"
 
-export default () => <div>Hello world!</div>
+import { AppLayout } from "../components/AppLayout"
+
+export default () => (
+  <AppLayout>
+    <h1>Hello you 👀</h1>
+  </AppLayout>
+)
