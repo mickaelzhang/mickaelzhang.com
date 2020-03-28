@@ -1,20 +1,8 @@
 import React from 'react'
 import { Global, css } from "@emotion/core"
+import "typeface-inter"
 
 const globalStyles = css`
-  /**
-   * CUSTOM GLOBAL CSS
-   */
-  html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  html, body, #___gatsby, #gatsby-focus-wrapper {
-    height: 100%;
-  }
-
   /**
    * RESET CSS
    */
@@ -45,9 +33,6 @@ const globalStyles = css`
     display: block;
   }
 
-  body {
-    line-height: 1;
-  }
   ol, ul {
     list-style: none;
   }
@@ -65,6 +50,24 @@ const globalStyles = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  /**
+   * CUSTOM GLOBAL CSS
+   */
+  body {
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  html, body, #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
   }
 `
 
