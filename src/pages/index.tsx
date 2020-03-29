@@ -18,9 +18,14 @@ const Text = styled.p`
 const LinkContainer = styled.div`
   margin-top: 48px;
   display: flex;
+  flex-direction: column;
 
-  & > *:not(:first-child) {
-    margin-left: 40px;
+  @media (min-width: 520px) {
+    flex-direction: row;
+
+    & > *:not(:first-child) {
+      margin-left: 40px;
+    }
   }
 `
 
@@ -34,9 +39,6 @@ const Link = styled.a`
     text-decoration: underline;
   }
 `
-
-
-
 
 export default () => (
   <AppLayout>
