@@ -1,5 +1,6 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react"
 import styled from "@emotion/styled"
+import { Helmet } from "react-helmet"
 
 import { GlobalStyle } from './GlobalStyle'
 
@@ -16,9 +17,16 @@ const Container = styled.div`
   padding: 120px 40px;
 `
 
-export const AppLayout: FC = ({ children }) => {
+interface AppLayoutProps {
+  children: ReactNode
+}
+
+export const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <>
+      <Helmet>
+        <title>Mickael Zhang</title>
+      </Helmet>
       <GlobalStyle />
       <PageContainer>
         <Container>
