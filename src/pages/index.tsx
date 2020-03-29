@@ -11,11 +11,16 @@ const Container = styled.div`
 `
 
 const Text = styled.p`
-  font-size: 36px;
-  line-height: 1.5;
   max-width: 800px;
   position: relative;
   margin-bottom: 16px;
+
+  font-size: 26px;
+  line-height: 1.5;
+
+  @media (min-width: 520px) {
+    font-size: 36px;
+  }
 `
 
 const LinkContainer = styled.div`
@@ -33,13 +38,17 @@ const LinkContainer = styled.div`
 `
 
 const Link = styled.a`
-  font-size: 36px;
   color: black;
-
   text-decoration: none;
 
   &:hover {
     text-decoration: underline;
+  }
+
+  font-size: 26px;
+
+  @media (min-width: 520px) {
+    font-size: 36px;
   }
 `
 
