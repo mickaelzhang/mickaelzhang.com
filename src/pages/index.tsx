@@ -5,6 +5,9 @@ import styled from "@emotion/styled"
 
 const Container = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const Text = styled.p`
@@ -16,7 +19,7 @@ const Text = styled.p`
 `
 
 const LinkContainer = styled.div`
-  margin-top: 48px;
+  margin-top: 28px;
   display: flex;
   flex-direction: column;
 
