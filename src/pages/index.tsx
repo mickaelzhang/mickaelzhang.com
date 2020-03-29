@@ -31,8 +31,8 @@ const LinkContainer = styled.div`
   @media (min-width: 520px) {
     flex-direction: row;
 
-    & > *:not(:first-child) {
-      margin-left: 40px;
+    & > *:not(:last-child) {
+      margin-right: 40px;
     }
   }
 `
