@@ -3,19 +3,28 @@ import styled from "@emotion/styled"
 
 import { GlobalStyle } from './GlobalStyle'
 
-const Container = styled.div`
+const PageContainer = styled.div`
   background-color: #FAFAFA;
   height: 100%;
-  padding: 20px;
+`
+
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 120px 40px;
 `
 
 export const AppLayout: FC = ({ children }) => {
   return (
     <>
       <GlobalStyle />
-      <Container>
-        {children}
-      </Container>
+      <PageContainer>
+        <Container>
+          {children}
+        </Container>
+      </PageContainer>
     </>
   )
 }
