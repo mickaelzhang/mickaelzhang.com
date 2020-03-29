@@ -44,7 +44,7 @@ export default () => (
   <AppLayout>
     <Container>
       <Text>Hey, I'm Mickael Zhang.</Text>
-      <Text>I'm Software Engineer living in Paris and currently working on PayFit's design system.</Text>
+      <Text>I'm a Software Engineer living in Paris and currently working on PayFit's design system.</Text>
       <LinkContainer>
         <Link href="https://twitter.com/mickaelzhg" target="_blank" rel="noopener">
           // Twitter
