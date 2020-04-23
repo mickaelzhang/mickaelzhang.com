@@ -7,6 +7,7 @@
 module.exports = {
   plugins: [
     'gatsby-plugin-typescript',
+    'gatsby-plugin-mdx',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-netlify',
